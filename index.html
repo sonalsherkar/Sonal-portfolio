@@ -8,7 +8,7 @@
     <title>Sonal Sherkar | Data Analyst Portfolio</title>
 
     <meta name="description"
-          content="Sonal Sherkar's portfolio showcasing data analytics projects, professional experience, and CV.">
+          content="Sonal Sherkar's portfolio showcasing data analytics projects, professional experience and CV.">
 
     <style>
         * {
@@ -19,7 +19,6 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
         }
 
         body {
@@ -34,24 +33,22 @@
             text-decoration: none;
         }
 
-        /* HERO / HOMEPAGE */
+        button {
+            font: inherit;
+        }
+
+        /* HERO / INTRODUCTION */
 
         .hero {
             min-height: 570px;
-            padding: 100px 20px 75px;
+            padding: 90px 20px 65px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(20, 25, 32, 0.96),
-                    rgba(66, 56, 51, 0.94)
-                );
+            background: linear-gradient(135deg, #17191d, #403a36, #202329);
         }
 
         .hero h1 {
@@ -66,25 +63,31 @@
             font-family: Georgia, serif;
             font-style: italic;
             font-size: clamp(1rem, 2.5vw, 1.35rem);
-            margin-bottom: 28px;
+            margin-bottom: 12px;
+        }
+
+        .hero .degree {
+            color: #d3c8bc;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
         }
 
         .hero .intro {
             max-width: 780px;
             font-size: 1rem;
             color: #e4e4e4;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .down-arrow {
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border: 2px solid white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 27px;
+            font-size: 26px;
             transition: 0.3s;
         }
 
@@ -95,16 +98,7 @@
 
         /* NAVIGATION */
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         .navigation {
-            position: sticky;
-            top: 0;
-            z-index: 100;
             max-width: 1160px;
             margin: 0 auto;
             background: #414247;
@@ -113,34 +107,48 @@
             flex-wrap: wrap;
         }
 
-        .navigation a {
-            padding: 22px 30px;
+        .navigation button {
+            padding: 22px 28px;
             color: white;
-            font-size: 0.82rem;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
             font-weight: bold;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .navigation a:hover,
-        .navigation a.active {
+        .navigation button:hover,
+        .navigation button.active {
             background: white;
             color: #252a34;
         }
 
-        /* GENERAL SECTIONS */
+        /* PAGE SWITCHING */
+
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active-page {
+            display: block;
+        }
+
+        /* SECTIONS */
 
         .section {
             max-width: 1160px;
             margin: 0 auto;
-            padding: 75px 45px;
+            padding: 70px 45px;
             background: white;
+            min-height: 400px;
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 42px;
         }
 
         .section-heading h2 {
@@ -178,13 +186,13 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
         }
 
         .project-top {
             min-height: 165px;
-            padding: 30px 24px;
+            padding: 28px 22px;
             background: #eeeeed;
             display: flex;
             flex-direction: column;
@@ -199,7 +207,7 @@
         }
 
         .project-top h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             line-height: 1.5;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -216,11 +224,11 @@
 
         .project-content ul {
             padding-left: 20px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .project-content li {
-            margin-bottom: 7px;
+            margin-bottom: 8px;
         }
 
         .tag {
@@ -242,6 +250,7 @@
             font-size: 0.85rem;
             font-weight: bold;
             border: 1px solid #30343b;
+            cursor: pointer;
             transition: 0.3s;
         }
 
@@ -250,33 +259,52 @@
             color: #30343b;
         }
 
-        /* CV SECTION */
+        /* CV */
 
-        .cv-box {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px;
-            background: #f7f7f6;
-            border: 1px solid #e6e6e6;
+        .cv-heading {
             text-align: center;
+            padding: 45px 20px;
+            color: white;
+            background: linear-gradient(135deg, #202329, #403a36);
         }
 
-        .cv-box h3 {
-            font-family: Georgia, serif;
-            font-size: 1.7rem;
-            margin-bottom: 12px;
+        .cv-heading h2 {
+            font-size: 2.3rem;
+            letter-spacing: 3px;
         }
 
-        .cv-box p {
-            color: #666;
-            margin-bottom: 15px;
+        .cv-heading p {
+            color: #ddd;
+            margin-top: 8px;
+        }
+
+        .cv-document {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 25px;
+            background: #eaeaea;
+        }
+
+        .cv-document iframe {
+            display: block;
+            width: 100%;
+            height: 1100px;
+            border: 1px solid #ddd;
+            background: white;
+        }
+
+        .cv-fallback {
+            padding: 25px;
+            text-align: center;
+            background: white;
+            color: #555;
         }
 
         /* EXPERIENCE */
 
         .experience-item {
             max-width: 850px;
-            margin: 0 auto 35px;
+            margin: 0 auto 30px;
             padding: 28px;
             border-left: 4px solid #b49a79;
             background: #f8f8f7;
@@ -287,12 +315,12 @@
             margin-bottom: 5px;
         }
 
-        .experience-item .company {
+        .company {
             color: #8b7355;
             font-weight: bold;
         }
 
-        .experience-item .date {
+        .date {
             color: #777;
             font-size: 0.9rem;
             margin-bottom: 15px;
@@ -306,8 +334,6 @@
         .experience-item li {
             margin-bottom: 8px;
         }
-
-        /* EDUCATION */
 
         .education {
             max-width: 850px;
@@ -323,7 +349,7 @@
             margin-bottom: 18px;
         }
 
-        /* CONTACT */
+        /* CONTACT - KEPT AS REQUESTED */
 
         .contact {
             background: #292d34;
@@ -370,38 +396,52 @@
             font-size: 0.85rem;
         }
 
-        /* MOBILE RESPONSIVENESS */
+        /* MOBILE */
 
         @media (max-width: 700px) {
             .hero {
                 min-height: 500px;
-                padding: 75px 20px;
+                padding: 65px 20px;
             }
 
             .hero h1 {
                 letter-spacing: 2px;
             }
 
-            .navigation a {
-                padding: 15px 12px;
-                font-size: 0.7rem;
-                letter-spacing: 0.5px;
+            .navigation button {
+                padding: 16px 11px;
+                font-size: 0.68rem;
+                letter-spacing: 0.4px;
             }
 
             .section {
-                padding: 50px 22px;
+                padding: 45px 20px;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cv-box {
-                padding: 25px 18px;
+            .cv-document {
+                padding: 10px;
+            }
+
+            .cv-document iframe {
+                height: 850px;
             }
 
             .experience-item {
                 padding: 22px 18px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links a {
+                max-width: 100%;
+                overflow-wrap: anywhere;
             }
         }
     </style>
@@ -409,14 +449,18 @@
 
 <body>
 
-    <!-- HOMEPAGE INTRODUCTION -->
+    <!-- HOME PAGE: INTRODUCTION -->
 
     <header class="hero" id="home">
 
         <h1>SONAL SHERKAR</h1>
 
         <p class="subtitle">
-            Data Analyst | Business Intelligence Analyst | MSc Data Science
+            Data Analyst | Business Intelligence Analyst
+        </p>
+
+        <p class="degree">
+            MSc Data Science | University of Hertfordshire
         </p>
 
         <p class="intro">
@@ -440,20 +484,30 @@
 
     <nav class="navigation" aria-label="Main navigation">
 
-        <a href="#projects" class="active">Projects</a>
+        <button type="button"
+                class="active"
+                data-page="projects">
+            Projects
+        </button>
 
-        <a href="#cv">CV</a>
+        <button type="button"
+                data-page="cv">
+            CV
+        </button>
 
-        <a href="#experience">Experience &amp; Internships</a>
+        <button type="button"
+                data-page="experience">
+            Experience &amp; Internships
+        </button>
 
     </nav>
 
 
     <main>
 
-        <!-- PROJECTS -->
+        <!-- PROJECTS PAGE -->
 
-        <section class="section" id="projects">
+        <section class="section page-view active-page" id="projects">
 
             <div class="section-heading">
                 <h2>Projects</h2>
@@ -466,7 +520,6 @@
 
                     <div class="project-top">
                         <div class="project-icon">📊</div>
-
                         <h3>Insurance Agent Performance Dashboard</h3>
                     </div>
 
@@ -480,7 +533,7 @@
                         </p>
 
                         <ul>
-                            <li>Analysed policies, quotes, retention, hit ratios, and loss ratios.</li>
+                            <li>Analysed policies, quotes, retention, hit ratios and loss ratios.</li>
                             <li>Created KPI measures and interactive visuals using DAX.</li>
                             <li>Used Power Query to clean and transform datasets.</li>
                             <li>Built data relationships for analysis across agencies and insurance lines.</li>
@@ -500,7 +553,6 @@
 
                     <div class="project-top">
                         <div class="project-icon">🌍</div>
-
                         <h3>COVID-19 in India Dashboard</h3>
                     </div>
 
@@ -522,7 +574,7 @@
 
                         <span class="tag">Tableau</span>
                         <span class="tag">Data Visualisation</span>
-                        <span class="tag">Exploratory Analysis</span>
+                        <span class="tag">Data Analysis</span>
 
                         <br>
 
@@ -543,66 +595,57 @@
         </section>
 
 
-        <!-- CV -->
+        <!-- CV PAGE: SHOWS THE CV DIRECTLY -->
 
-        <section class="section" id="cv">
+        <section class="page-view" id="cv">
 
-            <div class="section-heading">
-                <h2>My CV</h2>
-                <p>Education, professional background, and qualifications.</p>
+            <div class="cv-heading">
+                <h2>MY CV</h2>
+                <p>Sonal Sherkar | Data Analyst | Business Intelligence Analyst</p>
             </div>
 
-            <div class="cv-box">
+            <div class="cv-document">
 
-                <h3>Sonal Sherkar, MSc</h3>
+                <iframe
+                    src="Sonal-Sherkar-CV.pdf"
+                    title="Sonal Sherkar CV"
+                    loading="lazy">
+                </iframe>
 
-                <p>
-                    Business Intelligence Analyst | Data Analyst
-                </p>
+                <div class="cv-fallback">
+                    <p>
+                        If your CV is not displayed above, open the PDF directly.
+                    </p>
 
-                <p>
-                    View my CV for a detailed overview of my professional
-                    experience, technical skills, education, and certifications.
-                </p>
+                    <a href="Sonal-Sherkar-CV.pdf"
+                       class="button"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Open CV PDF
+                    </a>
 
-                <!--
-                TO ADD YOUR CV PDF:
-                1. Upload your CV PDF to the main GitHub repository.
-                2. Name the file Sonal-Sherkar-CV.pdf
-                3. Keep the filename exactly the same as below.
-                -->
-
-                <a href="Sonal-Sherkar-CV.pdf"
-                   class="button"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View My CV ↗
-                </a>
-
-                <a href="Sonal-Sherkar-CV.pdf"
-                   class="button"
-                   download>
-                    Download CV ↓
-                </a>
+                    <a href="Sonal-Sherkar-CV.pdf"
+                       class="button"
+                       download>
+                        Download CV
+                    </a>
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- EXPERIENCE AND INTERNSHIPS -->
+        <!-- EXPERIENCE & INTERNSHIPS PAGE -->
 
-        <section class="section" id="experience">
+        <section class="section page-view" id="experience">
 
             <div class="section-heading">
-
                 <h2>Experience &amp; Internships</h2>
-
                 <p>
                     My professional experience in data analytics,
-                    reporting, and business intelligence.
+                    reporting and business intelligence.
                 </p>
-
             </div>
 
 
@@ -626,12 +669,12 @@
                     </li>
 
                     <li>
-                        Used SQL queries, including JOINs, filters, and
+                        Used SQL queries, including JOINs, filters and
                         aggregate functions, to extract and analyse data.
                     </li>
 
                     <li>
-                        Applied Power Query, DAX, and data modelling
+                        Applied Power Query, DAX and data modelling
                         techniques to prepare datasets and maintain
                         consistent KPI calculations.
                     </li>
@@ -642,7 +685,7 @@
                     </li>
 
                     <li>
-                        Performed data validation, report reconciliation,
+                        Performed data validation, report reconciliation
                         and dashboard testing to improve reporting quality.
                     </li>
 
@@ -669,28 +712,28 @@
 
                 <ul>
                     <li>
-                        Collected, cleaned, formatted, and prepared datasets
-                        using SQL, Python, and Microsoft Excel.
+                        Collected, cleaned, formatted and prepared datasets
+                        using SQL, Python and Microsoft Excel.
                     </li>
 
                     <li>
-                        Wrote SQL queries to retrieve, filter, and organise
+                        Wrote SQL queries to retrieve, filter and organise
                         data for analysis and reporting.
                     </li>
 
                     <li>
                         Conducted exploratory data analysis to identify
-                        trends, patterns, and data inconsistencies.
+                        trends, patterns and data inconsistencies.
                     </li>
 
                     <li>
-                        Created Power BI dashboards using charts, tables,
+                        Created Power BI dashboards using charts, tables
                         and KPI visuals.
                     </li>
 
                     <li>
                         Performed data quality checks for missing values,
-                        duplicates, and inconsistencies.
+                        duplicates and inconsistencies.
                     </li>
                 </ul>
 
@@ -722,14 +765,12 @@
 
                     <li>
                         Demonstrated attention to detail, teamwork,
-                        reliability, and effective communication.
+                        reliability and effective communication.
                     </li>
                 </ul>
 
             </article>
 
-
-            <!-- EDUCATION -->
 
             <div class="education">
 
@@ -767,7 +808,7 @@
     </main>
 
 
-    <!-- CONTACT DETAILS AT THE BOTTOM -->
+    <!-- CONTACT SECTION: KEPT AS REQUESTED -->
 
     <section class="contact" id="contact">
 
@@ -808,43 +849,59 @@
     </footer>
 
 
+    <!-- JAVASCRIPT: SWITCH BETWEEN PAGE VIEWS -->
+
     <script>
+        const navButtons = document.querySelectorAll(".navigation button");
 
-        // Highlight the navigation option for the current section.
+        const pages = document.querySelectorAll(".page-view");
 
-        const navLinks = document.querySelectorAll(".navigation a");
+        function showPage(pageId) {
 
-        const sections = document.querySelectorAll(
-            "#projects, #cv, #experience"
-        );
-
-        function updateNavigation() {
-
-            let currentSection = "projects";
-
-            sections.forEach(section => {
-
-                const sectionTop = section.offsetTop - 150;
-
-                if (window.scrollY >= sectionTop) {
-                    currentSection = section.id;
-                }
-
-            });
-
-            navLinks.forEach(link => {
-
-                link.classList.toggle(
-                    "active",
-                    link.getAttribute("href") === "#" + currentSection
+            pages.forEach(function(page) {
+                page.classList.toggle(
+                    "active-page",
+                    page.id === pageId
                 );
-
             });
 
+            navButtons.forEach(function(button) {
+                button.classList.toggle(
+                    "active",
+                    button.dataset.page === pageId
+                );
+            });
+
+            // Start at the top of the selected view.
+            window.scrollTo(0, 0);
+
+            // Update the URL without reloading the website.
+            history.replaceState(null, "", "#" + pageId);
         }
 
-        window.addEventListener("scroll", updateNavigation);
+        navButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                showPage(this.dataset.page);
+            });
+        });
 
+        // Support direct links and browser navigation.
+        window.addEventListener("popstate", function() {
+            const pageId = window.location.hash.substring(1);
+            const validPages = ["projects", "cv", "experience"];
+
+            showPage(
+                validPages.includes(pageId) ? pageId : "projects"
+            );
+        });
+
+        // Open the appropriate view if a page-specific URL is used.
+        const initialPage = window.location.hash.substring(1);
+        const validPages = ["projects", "cv", "experience"];
+
+        showPage(
+            validPages.includes(initialPage) ? initialPage : "projects"
+        );
     </script>
 
 </body>
