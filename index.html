@@ -15,16 +15,16 @@
 
     <style>
         :root {
-            --background: #171F1B;
-            --surface: #202A24;
-            --surface-light: #28352D;
-            --forest: #354C3D;
-            --sage: #A8B99F;
-            --cream: #F1E9D8;
-            --muted: #B8C0B5;
-            --gold: #D5B77A;
-            --border: rgba(211, 221, 207, 0.13);
-            --shadow: 0 14px 40px rgba(0, 0, 0, 0.20);
+            --background: #211F23;
+            --surface: #2B272D;
+            --surface-light: #373039;
+            --accent: #B79AA8;
+            --accent-light: #D7C0CA;
+            --cream: #F4EDE5;
+            --muted: #C8BDC4;
+            --gold: #D7BD91;
+            --border: rgba(230, 213, 220, 0.14);
+            --shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
         }
 
         * {
@@ -35,7 +35,6 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 25px;
         }
 
         body {
@@ -50,25 +49,32 @@
             color: inherit;
         }
 
-        /* INTRODUCTION WITH A FULL-BLEED PHOTO */
+        /* INTRODUCTION */
 
         header {
             position: relative;
             isolation: isolate;
-            min-height: 440px;
+            min-height: 460px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            padding: 80px 24px 75px;
+            padding: 75px 24px 70px;
             overflow: hidden;
+
+            /*
+              Soft, warm analytics background.
+              The layered mauve overlay keeps the text readable.
+            */
 
             background-image:
                 linear-gradient(
-                    110deg,
-                    rgba(17, 27, 21, 0.94),
-                    rgba(24, 38, 29, 0.78) 55%,
-                    rgba(17, 27, 21, 0.88)
+                    115deg,
+                    rgba(35, 29, 35, 0.86),
+                    rgba(55, 43, 52, 0.69),
+                    rgba(35, 29, 35, 0.84)
                 ),
                 url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=90");
 
@@ -84,12 +90,13 @@
             position: absolute;
             inset: 0;
             z-index: -1;
+            pointer-events: none;
 
             background:
                 radial-gradient(
-                    ellipse at 50% 35%,
-                    rgba(168, 185, 159, 0.13),
-                    transparent 65%
+                    ellipse at center,
+                    rgba(183, 154, 168, 0.16),
+                    transparent 70%
                 );
         }
 
@@ -104,7 +111,7 @@
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size: 0.76rem;
+            font-size: 0.75rem;
             font-weight: 700;
             margin-bottom: 20px;
         }
@@ -114,13 +121,13 @@
             color: var(--cream);
             font-size: clamp(2.7rem, 6vw, 4.8rem);
             font-weight: 600;
-            letter-spacing: -1.5px;
+            letter-spacing: -1.3px;
             line-height: 1.2;
             margin-bottom: 15px;
         }
 
         header h2 {
-            color: var(--sage);
+            color: var(--accent-light);
             font-size: clamp(1rem, 2.5vw, 1.35rem);
             font-weight: 500;
             margin-bottom: 12px;
@@ -135,7 +142,7 @@
         .intro {
             max-width: 770px;
             margin: 0 auto;
-            color: #E0E3DC;
+            color: #F0E7EA;
             font-size: 1rem;
             line-height: 1.95;
         }
@@ -157,7 +164,7 @@
             gap: 12px;
             padding: 22px 16px;
 
-            background: #1B241E;
+            background: #252126;
             border-bottom: 1px solid var(--border);
         }
 
@@ -176,8 +183,8 @@
 
         nav button:hover,
         nav button.active {
-            background: var(--forest);
-            border-color: rgba(168, 185, 159, 0.35);
+            background: #55434F;
+            border-color: rgba(215, 189, 145, 0.4);
             color: var(--cream);
         }
 
@@ -268,8 +275,8 @@
 
         .project-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(213, 183, 122, 0.5);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+            border-color: rgba(215, 189, 145, 0.5);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
         }
 
         .project-image-wrap {
@@ -295,9 +302,9 @@
             left: 16px;
             bottom: 15px;
             padding: 5px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 3px;
-            background: rgba(20, 31, 24, 0.85);
+            background: rgba(35, 29, 35, 0.88);
             color: var(--cream);
             font-size: 0.72rem;
             font-weight: 600;
@@ -324,7 +331,7 @@
         }
 
         .tech {
-            color: var(--sage) !important;
+            color: var(--accent-light) !important;
             font-size: 0.85rem !important;
             font-weight: 600;
             line-height: 1.8;
@@ -338,8 +345,8 @@
             justify-content: center;
             gap: 7px;
             text-decoration: none;
-            background: var(--forest);
-            border: 1px solid rgba(168, 185, 159, 0.3);
+            background: #55434F;
+            border: 1px solid rgba(215, 189, 145, 0.25);
             color: var(--cream);
             padding: 11px 17px;
             border-radius: 5px;
@@ -351,7 +358,7 @@
 
         .project-link:hover,
         .button-link:hover {
-            background: #47634F;
+            background: #705765;
             border-color: var(--gold);
             transform: translateY(-2px);
         }
@@ -364,10 +371,9 @@
         }
 
         .card {
-            position: relative;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--sage);
+            border-left: 3px solid var(--accent);
             border-radius: 7px;
             padding: 28px 30px;
             margin-bottom: 23px;
@@ -398,10 +404,10 @@
         }
 
         .card li::marker {
-            color: var(--sage);
+            color: var(--accent-light);
         }
 
-        /* CV SECTION */
+        /* CV */
 
         .cv-container {
             max-width: 950px;
@@ -423,7 +429,7 @@
             display: block;
             width: 100%;
             height: 700px;
-            background: #EAE7DF;
+            background: #EAE4E4;
             border: 1px solid var(--border);
             border-radius: 5px;
             margin-bottom: 23px;
@@ -436,18 +442,19 @@
             gap: 12px;
         }
 
-        /* CONTACT SECTION */
+        /* CONTACT */
 
         #contact {
             position: relative;
             overflow: hidden;
+
             background:
                 radial-gradient(
                     ellipse at 50% 0%,
-                    rgba(168, 185, 159, 0.12),
+                    rgba(183, 154, 168, 0.13),
                     transparent 65%
                 ),
-                #202B23;
+                #29232A;
 
             border-top: 1px solid var(--border);
             padding: 68px 22px;
@@ -485,7 +492,7 @@
         .contact-links a {
             display: inline-block;
             padding: 10px 17px;
-            border: 1px solid rgba(168, 185, 159, 0.35);
+            border: 1px solid rgba(215, 192, 202, 0.3);
             border-radius: 5px;
             color: var(--cream);
             text-decoration: none;
@@ -494,13 +501,13 @@
         }
 
         .contact-links a:hover {
-            background: var(--forest);
+            background: #55434F;
             border-color: var(--gold);
         }
 
         footer {
-            background: #131A16;
-            color: #9DA89C;
+            background: #19161B;
+            color: #B8AEB6;
             text-align: center;
             padding: 20px;
             font-size: 0.82rem;
@@ -515,12 +522,12 @@
             outline-offset: 4px;
         }
 
-        /* MOBILE RESPONSIVENESS */
+        /* MOBILE */
 
         @media (max-width: 760px) {
             header {
                 min-height: auto;
-                padding: 68px 23px 58px;
+                padding: 65px 23px 55px;
                 background-position: center;
             }
 
@@ -599,13 +606,16 @@
 
     <header>
         <div class="hero-content">
+
             <span class="eyebrow">Data · Insights · Strategy</span>
 
             <h1>Sonal Sherkar</h1>
 
             <h2>Data Analyst | Business Intelligence Analyst</h2>
 
-            <p class="degree">MSc Data Science &nbsp;·&nbsp; United Kingdom</p>
+            <p class="degree">
+                MSc Data Science &nbsp;·&nbsp; United Kingdom
+            </p>
 
             <p class="intro">
                 Data Analyst with an MSc in Data Science and practical experience in
@@ -617,12 +627,14 @@
             </p>
 
             <div class="hero-line"></div>
+
         </div>
     </header>
 
     <!-- NAVIGATION -->
 
     <nav aria-label="Portfolio navigation">
+
         <button
             type="button"
             class="nav-button active"
@@ -646,15 +658,17 @@
             onclick="showPage('experience', this)">
             Experience &amp; Internships
         </button>
+
     </nav>
 
     <main>
 
-        <!-- PROJECTS: OPEN BY DEFAULT -->
+        <!-- PROJECTS -->
 
         <section id="projects" class="page-view active">
 
             <div class="section-heading">
+
                 <span class="section-kicker">Selected Work</span>
 
                 <h2 class="section-title">Projects &amp; Analysis</h2>
@@ -663,15 +677,17 @@
                     Turning complex data into meaningful insights through
                     interactive dashboards and thoughtful visualisation.
                 </p>
+
             </div>
 
             <div class="project-grid">
 
-                <!-- INSURANCE PROJECT -->
+                <!-- PROJECT 1 -->
 
                 <article class="project-card">
 
                     <div class="project-image-wrap">
+
                         <img
                             class="project-image"
                             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=90"
@@ -679,7 +695,10 @@
                             loading="lazy"
                         >
 
-                        <span class="image-label">Power BI · Analytics</span>
+                        <span class="image-label">
+                            Power BI · Analytics
+                        </span>
+
                     </div>
 
                     <div class="project-content">
@@ -702,13 +721,15 @@
                         </p>
 
                     </div>
+
                 </article>
 
-                <!-- COVID-19 PROJECT -->
+                <!-- PROJECT 2 -->
 
                 <article class="project-card">
 
                     <div class="project-image-wrap">
+
                         <img
                             class="project-image"
                             src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1200&q=90"
@@ -716,7 +737,10 @@
                             loading="lazy"
                         >
 
-                        <span class="image-label">Tableau · Public Health</span>
+                        <span class="image-label">
+                            Tableau · Public Health
+                        </span>
+
                     </div>
 
                     <div class="project-content">
@@ -745,9 +769,11 @@
                         </a>
 
                     </div>
+
                 </article>
 
             </div>
+
         </section>
 
         <!-- CV -->
@@ -755,8 +781,11 @@
         <section id="cv" class="page-view">
 
             <div class="section-heading">
+
                 <span class="section-kicker">Professional Profile</span>
+
                 <h2 class="section-title">My CV</h2>
+
             </div>
 
             <div class="cv-container">
@@ -790,16 +819,19 @@
                 </div>
 
             </div>
+
         </section>
 
         <!-- EXPERIENCE AND INTERNSHIPS -->
-        <!-- Education and Certifications remain removed -->
 
         <section id="experience" class="page-view">
 
             <div class="section-heading">
+
                 <span class="section-kicker">Professional Journey</span>
+
                 <h2 class="section-title">Experience &amp; Internships</h2>
+
             </div>
 
             <div class="experience-list">
@@ -814,6 +846,7 @@
                     </p>
 
                     <ul>
+
                         <li>
                             Built five interactive dashboards to track KPIs
                             and communicate business performance insights.
@@ -843,6 +876,7 @@
                             Gathered stakeholder requirements and documented
                             reporting processes.
                         </li>
+
                     </ul>
 
                 </article>
@@ -857,6 +891,7 @@
                     </p>
 
                     <ul>
+
                         <li>
                             Collected, cleaned, and prepared datasets using
                             SQL, Python, and Excel.
@@ -880,6 +915,7 @@
                             Performed data quality checks and prepared reports
                             and presentations.
                         </li>
+
                     </ul>
 
                 </article>
@@ -893,6 +929,7 @@
                     </p>
 
                     <ul>
+
                         <li>
                             Maintained accurate inventory records and reviewed
                             stock information.
@@ -907,11 +944,13 @@
                             Developed communication, teamwork, and
                             problem-solving skills.
                         </li>
+
                     </ul>
 
                 </article>
 
             </div>
+
         </section>
 
     </main>
@@ -955,20 +994,20 @@
     </section>
 
     <footer>
+
         <p>© 2026 Sonal Sherkar | Data Analyst Portfolio</p>
+
     </footer>
 
     <script>
         function showPage(pageId, clickedButton) {
 
-            // Hide every content section
             const pages = document.querySelectorAll(".page-view");
 
             pages.forEach(function(page) {
                 page.classList.remove("active");
             });
 
-            // Show the selected section
             const selectedPage = document.getElementById(pageId);
 
             if (!selectedPage) {
@@ -977,7 +1016,6 @@
 
             selectedPage.classList.add("active");
 
-            // Update navigation button appearance and accessibility state
             const buttons = document.querySelectorAll(".nav-button");
 
             buttons.forEach(function(button) {
@@ -988,7 +1026,6 @@
             clickedButton.classList.add("active");
             clickedButton.setAttribute("aria-pressed", "true");
 
-            // Move to the top of the selected content
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
