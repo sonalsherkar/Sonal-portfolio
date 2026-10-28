@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Sonal Sherkar | Data Analyst Portfolio</title>
-
-    <meta name="description"
-          content="Sonal Sherkar's portfolio showcasing data analytics projects, professional experience and CV.">
 
     <style>
         * {
@@ -23,350 +19,236 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-            color: #252a34;
-            line-height: 1.7;
+            background: #f7f8fc;
+            color: #263238;
+            line-height: 1.6;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        /* HERO / INTRODUCTION */
-
-        .hero {
-            min-height: 570px;
-            padding: 90px 20px 65px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        header {
+            background: #ffffff;
             text-align: center;
-            color: white;
-            background: linear-gradient(135deg, #17191d, #403a36, #202329);
+            padding: 55px 20px 30px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 4.7rem);
-            font-weight: 800;
-            letter-spacing: 5px;
-            line-height: 1.2;
-            margin-bottom: 20px;
+        header h1 {
+            font-size: 2.7rem;
+            color: #203864;
+            margin-bottom: 8px;
         }
 
-        .hero .subtitle {
-            font-family: Georgia, serif;
-            font-style: italic;
-            font-size: clamp(1rem, 2.5vw, 1.35rem);
+        header h2 {
+            font-size: 1.3rem;
+            color: #4c6a92;
+            font-weight: 500;
             margin-bottom: 12px;
         }
 
-        .hero .degree {
-            color: #d3c8bc;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+        .degree {
+            color: #687789;
+            margin-bottom: 18px;
         }
 
-        .hero .intro {
-            max-width: 780px;
-            font-size: 1rem;
-            color: #e4e4e4;
-            margin-bottom: 30px;
-        }
-
-        .down-arrow {
-            width: 50px;
-            height: 50px;
-            border: 2px solid white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 26px;
-            transition: 0.3s;
-        }
-
-        .down-arrow:hover {
-            background: white;
-            color: #252a34;
-        }
-
-        /* NAVIGATION */
-
-        .navigation {
-            max-width: 1160px;
+        .intro {
+            max-width: 800px;
             margin: 0 auto;
-            background: #414247;
+            color: #52616b;
+        }
+
+        nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            gap: 12px;
+            padding: 22px 15px;
+            background: #ffffff;
+            border-top: 1px solid #edf0f5;
+            border-bottom: 1px solid #edf0f5;
         }
 
-        .navigation button {
-            padding: 22px 28px;
-            color: white;
-            background: transparent;
+        nav button {
             border: none;
-            font-size: 0.8rem;
+            border-radius: 7px;
+            background: #e9eef8;
+            color: #203864;
+            padding: 12px 22px;
+            font-size: 15px;
             font-weight: bold;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s ease;
         }
 
-        .navigation button:hover,
-        .navigation button.active {
-            background: white;
-            color: #252a34;
+        nav button:hover,
+        nav button.active {
+            background: #203864;
+            color: #ffffff;
         }
 
-        /* PAGE SWITCHING */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 35px 20px 55px;
+            min-height: 350px;
+        }
 
         .page-view {
             display: none;
         }
 
-        .page-view.active-page {
+        .page-view.active {
             display: block;
+            animation: fadeIn 0.3s ease;
         }
 
-        /* SECTIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
 
-        .section {
-            max-width: 1160px;
-            margin: 0 auto;
-            padding: 70px 45px;
-            background: white;
-            min-height: 400px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .section-heading {
-            text-align: center;
-            margin-bottom: 42px;
-        }
-
-        .section-heading h2 {
+        .section-title {
             font-size: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: #203864;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        .section-heading p {
-            color: #777;
-            margin-top: 8px;
-        }
-
-        .section-heading::after {
-            content: "";
-            display: block;
-            width: 65px;
-            height: 4px;
-            background: #b49a79;
-            margin: 18px auto 0;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 28px;
+            gap: 25px;
         }
 
         .project-card {
-            border: 1px solid #e6e6e6;
-            background: white;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(32, 56, 100, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+            transform: translateY(-5px);
+            box-shadow: 0 9px 25px rgba(32, 56, 100, 0.14);
         }
 
-        .project-top {
-            min-height: 165px;
-            padding: 28px 22px;
-            background: #eeeeed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .project-icon {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .project-top h3 {
-            font-size: 1.2rem;
-            line-height: 1.5;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .project-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            background: #e9eef8;
         }
 
         .project-content {
-            padding: 25px;
+            padding: 23px;
         }
 
-        .project-content p {
-            color: #626262;
-            margin-bottom: 18px;
-        }
-
-        .project-content ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .project-content li {
-            margin-bottom: 8px;
-        }
-
-        .tag {
-            display: inline-block;
-            margin: 3px 4px 3px 0;
-            padding: 4px 10px;
-            background: #f0eee9;
-            color: #51483e;
-            font-size: 0.78rem;
-            border-radius: 3px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 11px 19px;
-            background: #30343b;
-            color: white;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border: 1px solid #30343b;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: white;
-            color: #30343b;
-        }
-
-        /* CV */
-
-        .cv-heading {
-            text-align: center;
-            padding: 45px 20px;
-            color: white;
-            background: linear-gradient(135deg, #202329, #403a36);
-        }
-
-        .cv-heading h2 {
-            font-size: 2.3rem;
-            letter-spacing: 3px;
-        }
-
-        .cv-heading p {
-            color: #ddd;
-            margin-top: 8px;
-        }
-
-        .cv-document {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 25px;
-            background: #eaeaea;
-        }
-
-        .cv-document iframe {
-            display: block;
-            width: 100%;
-            height: 1100px;
-            border: 1px solid #ddd;
-            background: white;
-        }
-
-        .cv-fallback {
-            padding: 25px;
-            text-align: center;
-            background: white;
-            color: #555;
-        }
-
-        /* EXPERIENCE */
-
-        .experience-item {
-            max-width: 850px;
-            margin: 0 auto 30px;
-            padding: 28px;
-            border-left: 4px solid #b49a79;
-            background: #f8f8f7;
-        }
-
-        .experience-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .company {
-            color: #8b7355;
-            font-weight: bold;
-        }
-
-        .date {
-            color: #777;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .experience-item ul {
-            padding-left: 22px;
-            margin-top: 12px;
-        }
-
-        .experience-item li {
-            margin-bottom: 8px;
-        }
-
-        .education {
-            max-width: 850px;
-            margin: 45px auto 0;
-        }
-
-        .education h3 {
-            margin-bottom: 18px;
-            font-size: 1.4rem;
-        }
-
-        .education p {
-            margin-bottom: 18px;
-        }
-
-        /* CONTACT - KEPT AS REQUESTED */
-
-        .contact {
-            background: #292d34;
-            color: white;
-            text-align: center;
-            padding: 65px 20px;
-        }
-
-        .contact h2 {
-            font-size: 2rem;
-            letter-spacing: 2px;
+        .project-content h3 {
+            color: #203864;
+            font-size: 1.3rem;
             margin-bottom: 12px;
         }
 
-        .contact p {
-            color: #dedede;
+        .project-content p {
+            color: #586574;
+            margin-bottom: 15px;
+        }
+
+        .tech {
+            color: #405b83;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .project-link,
+        .button-link {
+            display: inline-block;
+            text-decoration: none;
+            background: #203864;
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
+
+        .project-link:hover,
+        .button-link:hover {
+            background: #365b91;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
             margin-bottom: 22px;
+            box-shadow: 0 5px 18px rgba(32, 56, 100, 0.07);
+        }
+
+        .card h3 {
+            color: #203864;
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .card .meta {
+            color: #687789;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            padding-left: 22px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .cv-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(32, 56, 100, 0.07);
+        }
+
+        .cv-container iframe {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #e0e5ed;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .cv-note {
+            color: #687789;
+            margin-bottom: 20px;
+        }
+
+        #contact {
+            background: #203864;
+            color: #ffffff;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        #contact p {
+            margin: 8px auto;
+            max-width: 700px;
         }
 
         .contact-links {
@@ -374,74 +256,57 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
+            margin-top: 22px;
         }
 
         .contact-links a {
-            display: inline-block;
-            border: 1px solid #aaa;
-            padding: 10px 17px;
-            transition: 0.3s;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 6px;
+            padding: 9px 15px;
+            text-decoration: none;
         }
 
         .contact-links a:hover {
-            background: white;
-            color: #292d34;
+            background: #ffffff;
+            color: #203864;
         }
 
         footer {
-            background: #202329;
-            color: #c7c7c7;
+            background: #172a4d;
+            color: #dbe4f2;
             text-align: center;
             padding: 18px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
-        /* MOBILE */
-
         @media (max-width: 700px) {
-            .hero {
-                min-height: 500px;
-                padding: 65px 20px;
+            header {
+                padding-top: 38px;
             }
 
-            .hero h1 {
-                letter-spacing: 2px;
+            header h1 {
+                font-size: 2.1rem;
             }
 
-            .navigation button {
-                padding: 16px 11px;
-                font-size: 0.68rem;
-                letter-spacing: 0.4px;
+            header h2 {
+                font-size: 1.1rem;
             }
 
-            .section {
-                padding: 45px 20px;
-            }
-
-            .projects-grid {
+            .project-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cv-document {
-                padding: 10px;
+            .project-image {
+                height: 210px;
             }
 
-            .cv-document iframe {
-                height: 850px;
+            .cv-container iframe {
+                height: 500px;
             }
 
-            .experience-item {
-                padding: 22px 18px;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-links a {
-                max-width: 100%;
-                overflow-wrap: anywhere;
+            nav button {
+                padding: 10px 14px;
             }
         }
     </style>
@@ -449,459 +314,311 @@
 
 <body>
 
-    <!-- HOME PAGE: INTRODUCTION -->
+    <!-- INTRODUCTION: YOUR NAME APPEARS FIRST -->
+    <header>
+        <h1>Sonal Sherkar</h1>
 
-    <header class="hero" id="home">
+        <h2>Data Analyst | Business Intelligence Analyst</h2>
 
-        <h1>SONAL SHERKAR</h1>
-
-        <p class="subtitle">
-            Data Analyst | Business Intelligence Analyst
-        </p>
-
-        <p class="degree">
-            MSc Data Science | University of Hertfordshire
-        </p>
+        <p class="degree">MSc Data Science | United Kingdom</p>
 
         <p class="intro">
-            Data Analyst with an MSc in Data Science and practical experience
-            in business intelligence, data analysis, dashboard development,
-            and reporting. Skilled in Power BI, SQL, Tableau, Python, and
-            Advanced Excel, with knowledge of data transformation, data
-            modelling, KPI reporting, and data validation. Passionate about
-            turning complex data into clear insights that support better
-            business decisions.
+            Data Analyst with an MSc in Data Science and practical experience in
+            business intelligence, data analysis, dashboard development, and reporting.
+            Skilled in Power BI, SQL, Tableau, Python, and Advanced Excel, with knowledge
+            of data transformation, data modelling, KPI reporting, and data validation.
+            Passionate about turning complex data into clear insights that support
+            better business decisions.
         </p>
-
-        <a href="#projects" class="down-arrow" aria-label="Explore projects">
-            ↓
-        </a>
-
     </header>
 
-
-    <!-- ONLY THREE NAVIGATION OPTIONS -->
-
-    <nav class="navigation" aria-label="Main navigation">
-
-        <button type="button"
-                class="active"
-                data-page="projects">
+    <!-- NAVIGATION -->
+    <nav>
+        <button class="nav-button active"
+                onclick="showPage('projects', this)">
             Projects
         </button>
 
-        <button type="button"
-                data-page="cv">
+        <button class="nav-button"
+                onclick="showPage('cv', this)">
             CV
         </button>
 
-        <button type="button"
-                data-page="experience">
+        <button class="nav-button"
+                onclick="showPage('experience', this)">
             Experience &amp; Internships
         </button>
-
     </nav>
-
 
     <main>
 
-        <!-- PROJECTS PAGE -->
+        <!-- PROJECTS: DISPLAYED BY DEFAULT -->
+        <section id="projects" class="page-view active">
+            <h2 class="section-title">My Projects</h2>
 
-        <section class="section page-view active-page" id="projects">
+            <div class="project-grid">
 
-            <div class="section-heading">
-                <h2>Projects</h2>
-                <p>A selection of my data analytics and visualisation work.</p>
-            </div>
-
-            <div class="projects-grid">
-
+                <!-- PROJECT 1 -->
                 <article class="project-card">
-
-                    <div class="project-top">
-                        <div class="project-icon">📊</div>
-                        <h3>Insurance Agent Performance Dashboard</h3>
-                    </div>
+                    <img
+                        class="project-image"
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85"
+                        alt="Data analytics dashboard with charts and visual reports"
+                        loading="lazy"
+                    >
 
                     <div class="project-content">
+                        <h3>Insurance Agent Performance &amp; Segmentation Dashboard</h3>
 
                         <p>
-                            An interactive Power BI dashboard designed to
-                            analyse insurance performance, monitor KPIs,
-                            and compare business results across different
-                            segments.
+                            Developed an interactive Power BI dashboard to analyse
+                            insurance agent performance, policies in force, quotes,
+                            retention ratios, hit ratios, loss ratios, and business growth.
+                            Used data modelling, DAX measures, Power Query, KPI cards,
+                            charts, filters, and Top-N analysis to make performance
+                            insights easier to understand.
                         </p>
 
-                        <ul>
-                            <li>Analysed policies, quotes, retention, hit ratios and loss ratios.</li>
-                            <li>Created KPI measures and interactive visuals using DAX.</li>
-                            <li>Used Power Query to clean and transform datasets.</li>
-                            <li>Built data relationships for analysis across agencies and insurance lines.</li>
-                        </ul>
-
-                        <span class="tag">Power BI</span>
-                        <span class="tag">DAX</span>
-                        <span class="tag">Power Query</span>
-                        <span class="tag">Data Modelling</span>
-
+                        <p class="tech">
+                            Tools: Power BI, DAX, Power Query, Data Modelling
+                        </p>
                     </div>
-
                 </article>
 
-
+                <!-- PROJECT 2 -->
                 <article class="project-card">
-
-                    <div class="project-top">
-                        <div class="project-icon">🌍</div>
-                        <h3>COVID-19 in India Dashboard</h3>
-                    </div>
+                    <img
+                        class="project-image"
+                        src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1000&q=85"
+                        alt="Scientific visualisation representing health and COVID-19 data"
+                        loading="lazy"
+                    >
 
                     <div class="project-content">
+                        <h3>COVID-19 in India Dashboard</h3>
 
                         <p>
-                            An interactive Tableau dashboard exploring
-                            COVID-19 statistics across Indian states,
-                            including regional trends and public-health
-                            indicators.
+                            Created a Tableau dashboard exploring COVID-19 trends
+                            across India, including state-wise cases and deaths,
+                            age and gender analysis, vaccination information, and
+                            testing laboratory data. Used interactive charts and
+                            geographic visualisations to communicate public health
+                            trends clearly.
                         </p>
 
-                        <ul>
-                            <li>Created geographic maps to compare reported deaths across states.</li>
-                            <li>Explored age-group and gender distributions.</li>
-                            <li>Presented vaccination and testing-laboratory information.</li>
-                            <li>Combined multiple worksheets into an interactive dashboard.</li>
-                        </ul>
-
-                        <span class="tag">Tableau</span>
-                        <span class="tag">Data Visualisation</span>
-                        <span class="tag">Data Analysis</span>
-
-                        <br>
+                        <p class="tech">
+                            Tools: Tableau, Data Visualisation, Data Analysis
+                        </p>
 
                         <a
-                            href="https://public.tableau.com/views/Covid-19DashboardAnalysis_17383285954390/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
-                            class="button"
+                            class="project-link"
+                            href="https://public.tableau.com/views/Covid-19DashboardAnalysis_17383285954390/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
                             target="_blank"
-                            rel="noopener noreferrer">
+                            rel="noopener noreferrer"
+                        >
                             View Tableau Dashboard ↗
                         </a>
-
                     </div>
-
                 </article>
 
             </div>
-
         </section>
 
+        <!-- CV -->
+        <section id="cv" class="page-view">
+            <h2 class="section-title">My CV</h2>
 
-        <!-- CV PAGE: SHOWS THE CV DIRECTLY -->
-
-        <section class="page-view" id="cv">
-
-            <div class="cv-heading">
-                <h2>MY CV</h2>
-                <p>Sonal Sherkar | Data Analyst | Business Intelligence Analyst</p>
-            </div>
-
-            <div class="cv-document">
+            <div class="cv-container">
+                <p class="cv-note">
+                    View or open my CV using the options below.
+                    Upload your PDF file to the repository as
+                    <strong>Sonal-Sherkar-CV.pdf</strong>.
+                </p>
 
                 <iframe
                     src="Sonal-Sherkar-CV.pdf"
                     title="Sonal Sherkar CV"
-                    loading="lazy">
-                </iframe>
+                ></iframe>
 
-                <div class="cv-fallback">
-                    <p>
-                        If your CV is not displayed above, open the PDF directly.
-                    </p>
+                <a
+                    class="button-link"
+                    href="Sonal-Sherkar-CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open CV ↗
+                </a>
 
-                    <a href="Sonal-Sherkar-CV.pdf"
-                       class="button"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Open CV PDF
-                    </a>
+                &nbsp;
 
-                    <a href="Sonal-Sherkar-CV.pdf"
-                       class="button"
-                       download>
-                        Download CV
-                    </a>
-                </div>
-
+                <a
+                    class="button-link"
+                    href="Sonal-Sherkar-CV.pdf"
+                    download
+                >
+                    Download CV
+                </a>
             </div>
-
         </section>
 
+        <!-- EXPERIENCE: EDUCATION AND CERTIFICATIONS REMOVED -->
+        <section id="experience" class="page-view">
+            <h2 class="section-title">Experience &amp; Internships</h2>
 
-        <!-- EXPERIENCE & INTERNSHIPS PAGE -->
+            <article class="card">
+                <h3>Intern – Junior Data Analyst</h3>
 
-        <section class="section page-view" id="experience">
-
-            <div class="section-heading">
-                <h2>Experience &amp; Internships</h2>
-                <p>
-                    My professional experience in data analytics,
-                    reporting and business intelligence.
-                </p>
-            </div>
-
-
-            <article class="experience-item">
-
-                <h3>Junior Data Analyst Intern</h3>
-
-                <p class="company">
-                    Fortray Global Services Ltd. | London, UK
-                </p>
-
-                <p class="date">
+                <p class="meta">
+                    Fortray Global Services Ltd. | London, UK |
                     January 2025 – Present | Hybrid
                 </p>
 
                 <ul>
                     <li>
-                        Built five interactive dashboards to monitor KPIs,
-                        visualise business performance, and support
-                        data-driven decisions.
+                        Built five interactive dashboards to track KPIs and
+                        communicate business performance insights.
                     </li>
-
                     <li>
-                        Used SQL queries, including JOINs, filters and
-                        aggregate functions, to extract and analyse data.
+                        Used SQL JOINs, filters, and aggregate functions to
+                        retrieve and analyse business data.
                     </li>
-
                     <li>
-                        Applied Power Query, DAX and data modelling
-                        techniques to prepare datasets and maintain
-                        consistent KPI calculations.
+                        Used Power Query, DAX, and data modelling to transform
+                        data and develop dashboard measures.
                     </li>
-
                     <li>
-                        Improved reporting workflows, contributing to a
-                        reported 40% reduction in reporting time.
+                        Helped reduce reporting time by 40% and improve
+                        operational efficiency by 20%.
                     </li>
-
                     <li>
-                        Performed data validation, report reconciliation
-                        and dashboard testing to improve reporting quality.
+                        Performed data validation, reconciliation, and testing
+                        to improve reporting accuracy.
                     </li>
-
                     <li>
-                        Worked with stakeholders to understand reporting
-                        requirements and communicate analytical findings.
+                        Gathered stakeholder requirements and documented
+                        reporting processes.
                     </li>
                 </ul>
-
             </article>
 
+            <article class="card">
+                <h3>Intern – Data Analyst</h3>
 
-            <article class="experience-item">
-
-                <h3>Data Analyst Intern</h3>
-
-                <p class="company">
-                    Source Code Technology Private Ltd. | India
-                </p>
-
-                <p class="date">
+                <p class="meta">
+                    Source Code Technology Private Ltd. | India |
                     November 2022 – April 2023
                 </p>
 
                 <ul>
                     <li>
-                        Collected, cleaned, formatted and prepared datasets
-                        using SQL, Python and Microsoft Excel.
+                        Collected, cleaned, and prepared datasets using SQL,
+                        Python, and Excel.
                     </li>
-
                     <li>
-                        Wrote SQL queries to retrieve, filter and organise
-                        data for analysis and reporting.
+                        Wrote SQL queries to retrieve, filter, and analyse data.
                     </li>
-
                     <li>
                         Conducted exploratory data analysis to identify
-                        trends, patterns and data inconsistencies.
+                        trends, patterns, and potential data quality issues.
                     </li>
-
                     <li>
-                        Created Power BI dashboards using charts, tables
-                        and KPI visuals.
+                        Created Power BI dashboards and visual reports to
+                        present findings clearly.
                     </li>
-
                     <li>
-                        Performed data quality checks for missing values,
-                        duplicates and inconsistencies.
+                        Performed data quality checks and prepared reports
+                        and presentations.
                     </li>
                 </ul>
-
             </article>
 
-
-            <article class="experience-item">
-
+            <article class="card">
                 <h3>Supermarket Assistant</h3>
 
-                <p class="company">
-                    Waitrose | London, UK
-                </p>
-
-                <p class="date">
-                    March 2024 – December 2025
+                <p class="meta">
+                    Waitrose | London, UK | March 2024 – December 2025
                 </p>
 
                 <ul>
                     <li>
-                        Maintained accurate inventory and stock records
-                        to support daily operations.
+                        Maintained accurate inventory records and reviewed
+                        stock information.
                     </li>
-
                     <li>
-                        Reviewed stock information and communicated
-                        operational updates to colleagues and management.
+                        Supported daily store operations while paying close
+                        attention to detail and accuracy.
                     </li>
-
                     <li>
-                        Demonstrated attention to detail, teamwork,
-                        reliability and effective communication.
+                        Developed communication, teamwork, and
+                        problem-solving skills.
                     </li>
                 </ul>
-
             </article>
-
-
-            <div class="education">
-
-                <h3>Education</h3>
-
-                <p>
-                    <strong>MSc Data Science</strong><br>
-                    University of Hertfordshire, UK | 2023–2024
-                </p>
-
-                <p>
-                    <strong>B.E. Computer Engineering</strong><br>
-                    Savitribai Phule Pune University, India | 2019–2022
-                </p>
-
-                <h3>Certifications</h3>
-
-                <p>
-                    Microsoft Certified: Power BI Data Analyst Associate
-                    (PL-300) — June 2026
-                </p>
-
-                <p>
-                    Data Analytics with Python &amp; SQL — Simplilearn
-                </p>
-
-                <p>
-                    Business Analytics with Excel — Simplilearn
-                </p>
-
-            </div>
-
         </section>
 
     </main>
 
-
-    <!-- CONTACT SECTION: KEPT AS REQUESTED -->
-
-    <section class="contact" id="contact">
-
+    <!-- GET IN TOUCH: KEPT IN PLACE -->
+    <section id="contact">
         <h2>Get in Touch</h2>
 
         <p>
-            Interested in data analytics, business intelligence,
-            or new opportunities? Feel free to connect.
+            Interested in data analytics, business intelligence, or new
+            opportunities? Feel free to connect.
         </p>
 
         <div class="contact-links">
-
             <a href="mailto:sonalshivajisherkar28@gmail.com">
                 Email Me
             </a>
 
-            <a href="https://www.linkedin.com/in/sonal-sherkar-3117371b2/"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+                href="https://www.linkedin.com/in/sonal-sherkar-3117371b2/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 LinkedIn ↗
             </a>
 
             <a href="tel:+447393064031">
                 +44 7393 064031
             </a>
-
         </div>
 
-        <p style="margin-top: 25px;">
-            United Kingdom
-        </p>
-
+        <p>United Kingdom</p>
     </section>
 
-
     <footer>
-        © 2026 Sonal Sherkar | Data Analyst Portfolio
+        <p>© 2026 Sonal Sherkar | Data Analyst Portfolio</p>
     </footer>
 
-
-    <!-- JAVASCRIPT: SWITCH BETWEEN PAGE VIEWS -->
-
     <script>
-        const navButtons = document.querySelectorAll(".navigation button");
-
-        const pages = document.querySelectorAll(".page-view");
-
-        function showPage(pageId) {
+        function showPage(pageId, clickedButton) {
+            // Hide all page sections
+            const pages = document.querySelectorAll(".page-view");
 
             pages.forEach(function(page) {
-                page.classList.toggle(
-                    "active-page",
-                    page.id === pageId
-                );
+                page.classList.remove("active");
             });
 
-            navButtons.forEach(function(button) {
-                button.classList.toggle(
-                    "active",
-                    button.dataset.page === pageId
-                );
+            // Display the selected page
+            document.getElementById(pageId).classList.add("active");
+
+            // Update the selected navigation button
+            const buttons = document.querySelectorAll(".nav-button");
+
+            buttons.forEach(function(button) {
+                button.classList.remove("active");
             });
 
-            // Start at the top of the selected view.
-            window.scrollTo(0, 0);
+            clickedButton.classList.add("active");
 
-            // Update the URL without reloading the website.
-            history.replaceState(null, "", "#" + pageId);
+            // Return to the top of the selected page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         }
-
-        navButtons.forEach(function(button) {
-            button.addEventListener("click", function() {
-                showPage(this.dataset.page);
-            });
-        });
-
-        // Support direct links and browser navigation.
-        window.addEventListener("popstate", function() {
-            const pageId = window.location.hash.substring(1);
-            const validPages = ["projects", "cv", "experience"];
-
-            showPage(
-                validPages.includes(pageId) ? pageId : "projects"
-            );
-        });
-
-        // Open the appropriate view if a page-specific URL is used.
-        const initialPage = window.location.hash.substring(1);
-        const validPages = ["projects", "cv", "experience"];
-
-        showPage(
-            validPages.includes(initialPage) ? initialPage : "projects"
-        );
     </script>
 
 </body>
