@@ -1,42 +1,985 @@
-<div class="retail-gallery">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+\<title>Sonal Sherkar | Data Analyst Portfolio\</title>
 
-    <a
-        href="Executive_Overview.png"
-        target="_blank"
-        rel="noopener noreferrer">
+\<meta name="description" content="Explore Sonal Sherkar's data analytics and business intelligence portfolio, including Power BI and Tableau projects.">
 
-        <img
-            src="Executive_Overview.png"
-            alt="UK Retail 360 Executive Overview dashboard"
-            loading="lazy">
+\<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+\<link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
 
-        <span>Executive Overview ↗</span>
-    </a>
+\<link href="[https://fonts.googleapis.com/css2?family=Source+Sans+3\:wght@400;600;700;800&family=Playfair+Display\:ital,wght@0,400;0,500;1,400&display=swap](https://fonts.googleapis.com/css2?family=Source+Sans+3\:wght@400;600;700;800\&family=Playfair+Display\:ital,wght@0,400;0,500;1,400\&display=swap)" rel="stylesheet">
 
-    <a
-        href="Sales_Product_Analysis.png"
-        target="_blank"
-        rel="noopener noreferrer">
+\<style>
+    \:root {
+        \--background: #F5F2EE;
+        \--white: #FFFFFF;
+        \--charcoal: #252629;
+        \--text: #303239;
+        \--muted: #77777B;
+        \--taupe: #A28C80;
+        \--border: #E8E4E0;
+        \--dark-panel: #333236;
+    }
 
-        <img
-            src="Sales_Product_Analysis.png"
-            alt="UK Retail 360 Sales and Product Analysis dashboard"
-            loading="lazy">
+    \* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        <span>Sales & Product Analysis ↗</span>
-    </a>
+    html {
+        scroll-behavior: smooth;
+    }
 
-    <a
-        href="Operations_Analysis.png"
-        target="_blank"
-        rel="noopener noreferrer">
+    body {
+        background: var(--background);
+        color: var(--text);
+        font-family: "Source Sans 3", sans-serif;
+        line-height: 1.7;
+    }
 
-        <img
-            src="Operations_Analysis.png"
-            alt="UK Retail 360 Operations Analysis dashboard"
-            loading="lazy">
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
 
-        <span>Operations Analysis ↗</span>
-    </a>
+    /\* FULL-SCREEN INTRODUCTION \*/
 
+    .hero {
+        min-height: 76vh;
+        min-height: 76svh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding: 85px 24px 115px;
+
+        background-image:
+            linear-gradient(
+                rgba(31, 31, 33, 0.76),
+                rgba(36, 33, 34, 0.77)
+            ),
+            url("[https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2200&q=90](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format\&fit=crop\&w=2200\&q=90)");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #393536;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+
+        background:
+            radial-gradient(
+                ellipse at center,
+                rgba(185, 158, 141, 0.16),
+                transparent 68%
+            );
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        width: 100%;
+    }
+
+    .hero h1 {
+        color: #FFFFFF;
+        font-size: clamp(2.7rem, 6.4vw, 5rem);
+        font-weight: 800;
+        letter-spacing: 5px;
+        line-height: 1.2;
+        margin-bottom: 22px;
+        text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+        color: #F0E8E3;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: clamp(1rem, 2.2vw, 1.45rem);
+        line-height: 1.8;
+        padding: 0 10px;
+    }
+
+    .hero-location {
+        margin-top: 10px;
+        color: #D8C9C0;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+
+    .down-arrow {
+        width: 65px;
+        height: 65px;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 42px auto 0;
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 2rem;
+        line-height: 1;
+        transition: background 0.25s, transform 0.25s;
+    }
+
+    .down-arrow\:hover {
+        background: rgba(255, 255, 255, 0.13);
+        transform: translateY(4px);
+    }
+
+    /\* PORTFOLIO PANEL \*/
+
+    .portfolio-shell {
+        max-width: 1240px;
+        width: calc(100% - 64px);
+        margin: -1px auto 0;
+        position: relative;
+        z-index: 2;
+        background: var(--white);
+        box-shadow: 0 12px 45px rgba(40, 35, 32, 0.09);
+    }
+
+    /\* NAVIGATION TABS \*/
+
+    .navigation {
+        display: flex;
+        align-items: stretch;
+        background: #59575A;
+        min-height: 67px;
+    }
+
+    .nav-button {
+        appearance: none;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #FFFFFF;
+        padding: 22px 31px;
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-button\:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-button.active {
+        background: #FFFFFF;
+        color: #292A2D;
+    }
+
+    /\* PAGE CONTENT \*/
+
+    .page-view {
+        display: none;
+        background: #FFFFFF;
+        min-height: 390px;
+    }
+
+    .page-view\.active {
+        display: block;
+        animation: appear 0.3s ease;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .section-heading {
+        text-align: center;
+        padding: 48px 25px 10px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.9rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        line-height: 1.35;
+        text-transform: uppercase;
+        color: #303239;
+    }
+
+    .section-heading p {
+        color: var(--muted);
+        margin: 10px auto 0;
+        max-width: 680px;
+    }
+
+    /\* PROJECT GRID \*/
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card {
+        min-width: 0;
+        background: #FFFFFF;
+        padding: 42px 38px 45px;
+        border-right: 1px solid #EBEBEB;
+        border-top: 1px solid #EBEBEB;
+        transition: background 0.25s;
+    }
+
+    .project-card\:nth-child(even) {
+        border-right: none;
+    }
+
+    .project-card\:hover {
+        background: #FCFAF8;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 245px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 30px;
+        background: #E9E4DF;
+    }
+
+    .project-card h3 {
+        color: #292B30;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .project-card p {
+        color: #6D6D71;
+        font-size: 0.98rem;
+        margin-bottom: 18px;
+    }
+
+    .project-card .tech {
+        color: #756157;
+        font-size: 0.88rem;
+        font-weight: 700;
+    }
+
+    .project-link,
+    .button-link {
+        display: inline-block;
+        padding: 11px 19px;
+        background: #595052;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        border: 1px solid #595052;
+        transition: all 0.2s;
+    }
+
+    .project-link\:hover,
+    .button-link\:hover {
+        background: #78665E;
+        border-color: #78665E;
+    }
+
+    /\* CV SECTION \*/
+
+    .cv-container {
+        padding: 35px;
+        text-align: center;
+    }
+
+    .cv-container p {
+        color: var(--muted);
+        margin-bottom: 22px;
+    }
+
+    .cv-container iframe {
+        display: block;
+        width: 100%;
+        height: 680px;
+        border: 1px solid var(--border);
+        margin-bottom: 24px;
+        background: #F5F2EE;
+    }
+
+    .cv-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /\* EXPERIENCE \*/
+
+    .experience-list {
+        padding: 30px 38px 45px;
+    }
+
+    .experience-card {
+        padding: 27px 28px;
+        border-bottom: 1px solid #E9E5E1;
+    }
+
+    .experience-card\:last-child {
+        border-bottom: none;
+    }
+
+    .experience-card h3 {
+        color: #303239;
+        font-size: 1.35rem;
+        margin-bottom: 7px;
+    }
+
+    .experience-card .meta {
+        color: #8A7165;
+        font-size: 0.91rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .experience-card ul {
+        padding-left: 22px;
+        color: #66666B;
+    }
+
+    .experience-card li {
+        margin-bottom: 8px;
+        padding-left: 4px;
+    }
+
+    /\* CONTACT \*/
+
+    \#contact {
+        margin-top: 70px;
+        padding: 65px 22px;
+        text-align: center;
+        color: #F4EDE8;
+        background:
+            linear-gradient(
+                rgba(37, 34, 36, 0.94),
+                rgba(37, 34, 36, 0.96)
+            ),
+            url("[https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format\&fit=crop\&w=1800\&q=80)");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    \#contact h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 13px;
+    }
+
+    \#contact p {
+        max-width: 680px;
+        margin: 8px auto;
+        color: #D6CCC8;
+    }
+
+    .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin: 26px auto;
+    }
+
+    .contact-links a {
+        display: inline-block;
+        padding: 10px 17px;
+        color: #FFFFFF;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .contact-links a\:hover {
+        background: #FFFFFF;
+        color: #29272A;
+    }
+
+    footer {
+        padding: 20px;
+        text-align: center;
+        background: #1D1B1E;
+        color: #BFB4B7;
+        font-size: 0.85rem;
+    }
+
+    /\* RESPONSIVE LAYOUT \*/
+
+    @media (min-width: 1500px) {
+        .portfolio-shell {
+            max-width: 1300px;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .hero {
+            min-height: 70svh;
+            padding: 70px 20px 90px;
+            background-position: center;
+        }
+
+        .hero h1 {
+            letter-spacing: 2px;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-subtitle {
+            font-size: 1.02rem;
+        }
+
+        .down-arrow {
+            width: 56px;
+            height: 56px;
+            margin-top: 30px;
+        }
+
+        .portfolio-shell {
+            width: calc(100% - 24px);
+        }
+
+        .navigation {
+            flex-wrap: wrap;
+            min-height: auto;
+        }
+
+        .nav-button {
+            flex: 1 1 auto;
+            padding: 16px 10px;
+            font-size: 0.72rem;
+            letter-spacing: 0.7px;
+        }
+
+        .section-heading {
+            padding: 35px 20px 15px;
+        }
+
+        .section-heading h2 {
+            font-size: 1.55rem;
+        }
+
+        .project-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .project-card {
+            padding: 25px 23px 32px;
+            border-right: none;
+        }
+
+        .project-image {
+            height: 220px;
+            margin-bottom: 24px;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+        }
+
+        .experience-list {
+            padding: 15px 17px 30px;
+        }
+
+        .experience-card {
+            padding: 23px 7px;
+        }
+
+        .cv-container {
+            padding: 20px 13px;
+        }
+
+        .cv-container iframe {
+            height: 520px;
+        }
+
+        \#contact {
+            margin-top: 40px;
+            padding: 48px 20px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        \*,
+        \*::before,
+        \*::after {
+            scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+\</style>
+```
+</head>
+<body>
+```
+\<!-- FULL-SCREEN INTRODUCTION -->
+
+\<header class="hero" id="home">
+
+    \<div class="hero-content">
+
+        \<h1>Sonal Sherkar\</h1>
+
+        \<p class="hero-subtitle">
+            Data Analyst | Business Intelligence Analyst | MSc Data Science
+        \</p>
+
+        \<p class="hero-location">
+            United Kingdom
+        \</p>
+
+        \<a
+            class="down-arrow"
+            href="#portfolio"
+            aria-label="Scroll down to portfolio">
+            ↓
+        \</a>
+
+    \</div>
+
+\</header>
+
+\<!-- PORTFOLIO -->
+
+\<div class="portfolio-shell" id="portfolio">
+
+    \<nav class="navigation" aria-label="Portfolio navigation">
+
+        \<button
+            type="button"
+            class="nav-button active"
+            aria-pressed="true"
+            onclick="showPage('projects', this)">
+            Projects
+        \</button>
+
+        \<button
+            type="button"
+            class="nav-button"
+            aria-pressed="false"
+            onclick="showPage('cv', this)">
+            CV
+        \</button>
+
+        \<button
+            type="button"
+            class="nav-button"
+            aria-pressed="false"
+            onclick="showPage('experience', this)">
+            Experience
+        \</button>
+
+    \</nav>
+
+    \<!-- PROJECTS -->
+
+    \<section id="projects" class="page-view active">
+
+        \<div class="section-heading">
+
+            \<h2>My Projects\</h2>
+
+            \<p>
+                Data analytics and visualisation projects showcasing
+                business insights through interactive dashboards.
+            \</p>
+
+        \</div>
+
+        \<div class="project-grid">
+
+            \<!-- POWER BI PROJECT -->
+            \<div class="project-card">
+\<img
+    src="[https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=1200&q=85](https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format\&fit=crop\&w=1200\&q=85)"
+    alt="Retail sales and business analytics"
+\>
+
+\<div class="project-content">
+    \<h3>UK Retail 360° — Enterprise BI, Sales & Operations Analytics\</h3>
+
+    \<p class="project-tech">
+        SQL Server 2025 · T-SQL · Power BI · DAX
+    \</p>
+
+    \<p>
+        Developed an end-to-end retail Business Intelligence solution
+        using SQL Server and Power BI to analyse sales, profitability,
+        customer, product, and operational performance.
+    \</p>
+
+    \<ul>
+        \<li>Performed SQL-based data cleaning, transformation, and analytical querying.\</li>
+        \<li>Designed a three-page interactive dashboard covering Executive Overview, Sales & Product Analysis, and Operations Analysis.\</li>
+        \<li>Created KPI cards and visualisations for revenue, profit, orders, customers, quantity sold, and profit margin.\</li>
+        \<li>Analysed performance across product categories, sales channels, stores, inventory, and customer-service cases.\</li>
+        \<li>Implemented year slicers and interactive page navigation for dynamic reporting.\</li>
+    \</ul>
+
+    \<div class="project-highlight">
+        \<strong>Key Results:\</strong>
+        £3.59M Revenue · £1.51M Profit · 42.1% Profit Margin
+    \</div>
+
+    \<a href="UK-Retail-360-Dashboard.png"
+       target="\_blank"
+       class="project-button">
+        View Retail Dashboard ↗
+    \</a>
+\</div>
+```
 </div>
+```
+            \<article class="project-card">
+
+                \<!-- Display image: business analytics photo, not the dashboard screenshot -->
+
+                \<img
+                    class="project-image"
+                    src="[https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format\&fit=crop\&w=1200\&q=85)"
+                    alt="Business analytics dashboard with charts and performance metrics"
+                    loading="lazy"
+                \>
+
+                \<h3>
+                    Insurance Agent Performance &amp; Segmentation Dashboard
+                \</h3>
+
+                \<p>
+                    Developed an interactive Power BI dashboard to analyse
+                    insurance agent performance, policies in force, quotes,
+                    retention ratios, hit ratios, loss ratios, and business growth.
+                    Used data modelling, DAX measures, Power Query, KPI cards,
+                    charts, filters, and Top-N analysis to make performance
+                    insights easier to understand.
+                \</p>
+
+                \<p class="tech">
+                    Tools: Power BI, DAX, Power Query, Data Modelling
+                \</p>
+
+                \<!-- Button opens your actual Power BI screenshot -->
+
+                \<a
+                    class="project-link"
+                    href="powerbi-dashboard.png"
+                    target="\_blank"
+                    rel="noopener noreferrer">
+                    View Power BI Dashboard ↗
+                \</a>
+
+            \</article>
+
+            \<!-- TABLEAU PROJECT -->
+
+            \<article class="project-card">
+
+                \<img
+                    class="project-image"
+                    src="[https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1200&q=85](https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format\&fit=crop\&w=1200\&q=85)"
+                    alt="Scientific image representing public health data analysis"
+                    loading="lazy"
+                \>
+
+                \<h3>COVID-19 in India Dashboard\</h3>
+
+                \<p>
+                    Created a Tableau dashboard exploring COVID-19 trends
+                    across India, including state-wise cases and deaths,
+                    age and gender analysis, vaccination information, and
+                    testing laboratory data. Used interactive charts and
+                    geographic visualisations to communicate public health
+                    trends clearly.
+                \</p>
+
+                \<p class="tech">
+                    Tools: Tableau, Data Visualisation, Data Analysis
+                \</p>
+
+                \<a
+                    class="project-link"
+                    href="[https://public.tableau.com/views/Covid-19DashboardAnalysis_17383285954390/Dashboard1?\:language=en-US&publish=yes&\:sid=&\:redirect=auth&\:display_count=n&\:origin=viz_share_link](https://public.tableau.com/views/Covid-19DashboardAnalysis_17383285954390/Dashboard1?\:language=en-US\&publish=yes&\:sid=&\:redirect=auth&\:display_count=n&\:origin=viz_share_link)"
+                    target="\_blank"
+                    rel="noopener noreferrer">
+                    View Tableau Dashboard ↗
+                \</a>
+
+            \</article>
+
+        \</div>
+
+    \</section>
+
+    \<!-- CV -->
+
+    \<section id="cv" class="page-view">
+
+        \<div class="section-heading">
+            \<h2>My CV\</h2>
+        \</div>
+
+        \<div class="cv-container">
+
+            \<p>
+                View or download my CV using the options below.
+            \</p>
+
+            \<iframe
+                src="Sonal-Sherkar-CV.pdf"
+                title="Sonal Sherkar CV">
+            \</iframe>
+
+            \<div class="cv-buttons">
+
+                \<a
+                    class="button-link"
+                    href="Sonal-Sherkar-CV.pdf"
+                    target="\_blank"
+                    rel="noopener noreferrer">
+                    Open CV ↗
+                \</a>
+
+                \<a
+                    class="button-link"
+                    href="Sonal-Sherkar-CV.pdf"
+                    download>
+                    Download CV
+                \</a>
+
+            \</div>
+
+        \</div>
+
+    \</section>
+
+    \<!-- EXPERIENCE -->
+
+    \<section id="experience" class="page-view">
+
+        \<div class="section-heading">
+            \<h2>Experience &amp; Internships\</h2>
+        \</div>
+
+        \<div class="experience-list">
+
+            \<article class="experience-card">
+
+                \<h3>Intern – Junior Data Analyst\</h3>
+
+                \<p class="meta">
+                    Fortray Global Services Ltd. | London, UK |
+                    January 2025 – Present | Hybrid
+                \</p>
+
+                \<ul>
+                    \<li>
+                        Built five interactive dashboards to track KPIs
+                        and communicate business performance insights.
+                    \</li>
+
+                    \<li>
+                        Used SQL JOINs, filters, and aggregate functions
+                        to retrieve and analyse business data.
+                    \</li>
+
+                    \<li>
+                        Used Power Query, DAX, and data modelling to
+                        transform data and develop dashboard measures.
+                    \</li>
+
+                    \<li>
+                        Helped reduce reporting time by 40% and improve
+                        operational efficiency by 20%.
+                    \</li>
+
+                    \<li>
+                        Performed data validation, reconciliation, and
+                        testing to improve reporting accuracy.
+                    \</li>
+
+                    \<li>
+                        Gathered stakeholder requirements and documented
+                        reporting processes.
+                    \</li>
+                \</ul>
+
+            \</article>
+
+            \<article class="experience-card">
+
+                \<h3>Intern – Data Analyst\</h3>
+
+                \<p class="meta">
+                    Source Code Technology Private Ltd. | India |
+                    November 2022 – April 2023
+                \</p>
+
+                \<ul>
+                    \<li>
+                        Collected, cleaned, and prepared datasets using
+                        SQL, Python, and Excel.
+                    \</li>
+
+                    \<li>
+                        Wrote SQL queries to retrieve, filter, and analyse data.
+                    \</li>
+
+                    \<li>
+                        Conducted exploratory data analysis to identify
+                        trends, patterns, and potential data quality issues.
+                    \</li>
+
+                    \<li>
+                        Created Power BI dashboards and visual reports
+                        to present findings clearly.
+                    \</li>
+
+                    \<li>
+                        Performed data quality checks and prepared reports
+                        and presentations.
+                    \</li>
+                \</ul>
+
+            \</article>
+
+            \<article class="experience-card">
+
+                \<h3>Supermarket Assistant\</h3>
+
+                \<p class="meta">
+                    Waitrose | London, UK | March 2024 – December 2025
+                \</p>
+
+                \<ul>
+                    \<li>
+                        Maintained accurate inventory records and reviewed
+                        stock information.
+                    \</li>
+
+                    \<li>
+                        Supported daily store operations while paying
+                        close attention to detail and accuracy.
+                    \</li>
+
+                    \<li>
+                        Developed communication, teamwork, and
+                        problem-solving skills.
+                    \</li>
+                \</ul>
+
+            \</article>
+
+        \</div>
+
+    \</section>
+
+\</div>
+
+\<!-- GET IN TOUCH -->
+
+\<section id="contact">
+
+    \<h2>Get in Touch\</h2>
+
+    \<p>
+        Interested in data analytics, business intelligence, or new
+        opportunities? Feel free to connect.
+    \</p>
+
+    \<div class="contact-links">
+
+        \<a href="mailto\:sonalshivajisherkar28\@gmail.com">
+            Email Me
+        \</a>
+
+        \<a
+            href="[https://www.linkedin.com/in/sonal-sherkar-3117371b2/](https://www.linkedin.com/in/sonal-sherkar-3117371b2/)"
+            target="\_blank"
+            rel="noopener noreferrer">
+            LinkedIn ↗
+        \</a>
+
+        \<!-- GET IN TOUCH  \<a href="tel:+447393064031">
+            +44 7393 064031 -->
+        \</a>
+
+    \</div>
+
+    \<p>United Kingdom\</p>
+
+\</section>
+
+\<footer>
+    \<p>© 2026 Sonal Sherkar | Data Analyst Portfolio\</p>
+\</footer>
+
+\<script>
+    function showPage(pageId, clickedButton) {
+
+        const pages = document.querySelectorAll(".page-view");
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+        const selectedPage = document.getElementById(pageId);
+
+        if (!selectedPage) {
+            return;
+        }
+
+        selectedPage.classList.add("active");
+
+        const buttons = document.querySelectorAll(".nav-button");
+
+        buttons.forEach(function(button) {
+            button.classList.remove("active");
+            button.setAttribute("aria-pressed", "false");
+        });
+
+        clickedButton.classList.add("active");
+        clickedButton.setAttribute("aria-pressed", "true");
+
+        document.getElementById("portfolio").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+\</script>
+```
+</body>
+</html>
+just change the photo of recent project its too big and rewrite this code as it is
