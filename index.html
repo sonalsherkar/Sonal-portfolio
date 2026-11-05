@@ -1,22 +1,29 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Sonal Sherkar | Data Analyst Portfolio</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Explore Sonal Sherkar's data analytics and business intelligence portfolio, including Power BI and Tableau projects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --background: #f5f1eb;
-            --card: #fffdf9;
-            --dark: #292725;
-            --text: #4b4641;
-            --muted: #817970;
-            --accent: #9a8068;
-            --accent-dark: #735b47;
-            --border: #e4ddd4;
+            --background: #F5F2EE;
+            --white: #FFFFFF;
+            --charcoal: #252629;
+            --text: #303239;
+            --muted: #77777B;
+            --taupe: #A28C80;
+            --border: #E8E4E0;
+            --dark-panel: #333236;
         }
 
         * {
@@ -30,277 +37,224 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
             background: var(--background);
             color: var(--text);
+            font-family: "Source Sans 3", sans-serif;
             line-height: 1.7;
         }
 
+        button,
         a {
-            text-decoration: none;
-            color: inherit;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        /* Navigation */
-
-        header {
-            background: rgba(245, 241, 235, 0.96);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            min-height: 75px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 25px;
-            color: var(--dark);
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-dark);
-        }
-
-        /* Hero */
+        /* FULL-SCREEN INTRODUCTION */
 
         .hero {
-            padding: 100px 0 90px;
+            min-height: 76vh;
+            min-height: 76svh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 85px 24px 115px;
+
+            background-image:
+                linear-gradient(
+                    rgba(31, 31, 33, 0.76),
+                    rgba(36, 33, 34, 0.77)
+                ),
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=2200&q=90");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #393536;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(185, 158, 141, 0.16),
+                    transparent 68%
+                );
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-label {
-            color: var(--accent-dark);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            width: 100%;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(42px, 6vw, 68px);
-            color: var(--dark);
-            line-height: 1.15;
-            margin-bottom: 20px;
+            color: #FFFFFF;
+            font-size: clamp(2.7rem, 6.4vw, 5rem);
+            font-weight: 800;
+            letter-spacing: 5px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+            text-transform: uppercase;
         }
 
-        .hero h2 {
-            font-size: 21px;
-            font-weight: 500;
-            color: var(--accent-dark);
-            margin-bottom: 20px;
+        .hero-subtitle {
+            color: #F0E8E3;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: clamp(1rem, 2.2vw, 1.45rem);
+            line-height: 1.8;
+            padding: 0 10px;
         }
 
-        .hero p {
-            max-width: 650px;
-            font-size: 16px;
-            color: var(--muted);
-            margin-bottom: 30px;
+        .hero-location {
+            margin-top: 10px;
+            color: #D8C9C0;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
         }
 
-        .hero-buttons {
+        .down-arrow {
+            width: 65px;
+            height: 65px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin: 42px auto 0;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-size: 2rem;
+            line-height: 1;
+            transition: background 0.25s, transform 0.25s;
         }
 
-        .button {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .down-arrow:hover {
+            background: rgba(255, 255, 255, 0.13);
+            transform: translateY(4px);
         }
 
-        .button-primary {
-            background: var(--dark);
-            color: white;
+        /* PORTFOLIO PANEL */
+
+        .portfolio-shell {
+            max-width: 1240px;
+            width: calc(100% - 64px);
+            margin: -1px auto 0;
+            position: relative;
+            z-index: 2;
+            background: var(--white);
+            box-shadow: 0 12px 45px rgba(40, 35, 32, 0.09);
         }
 
-        .button-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
+        /* NAVIGATION TABS */
+
+        .navigation {
+            display: flex;
+            align-items: stretch;
+            background: #59575A;
+            min-height: 67px;
         }
 
-        .button-secondary {
-            border: 1px solid var(--accent);
-            color: var(--accent-dark);
+        .nav-button {
+            appearance: none;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: #FFFFFF;
+            padding: 22px 31px;
+            font-family: "Source Sans 3", sans-serif;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
         }
 
-        .button-secondary:hover {
-            background: var(--accent);
-            color: white;
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .hero-card {
-            background: var(--card);
-            padding: 35px;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 12px 35px rgba(41, 39, 37, 0.05);
+        .nav-button.active {
+            background: #FFFFFF;
+            color: #292A2D;
         }
 
-        .hero-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 23px;
-            color: var(--dark);
-            margin-bottom: 20px;
+        /* PAGE CONTENT */
+
+        .page-view {
+            display: none;
+            background: #FFFFFF;
+            min-height: 390px;
         }
 
-        .hero-card-item {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-card-item:last-child {
-            border-bottom: none;
-        }
-
-        .hero-card-item strong {
+        .page-view.active {
             display: block;
-            color: var(--dark);
-            font-size: 14px;
+            animation: appear 0.3s ease;
         }
 
-        .hero-card-item span {
-            color: var(--muted);
-            font-size: 13px;
-        }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
 
-        /* General Sections */
-
-        section {
-            padding: 80px 0;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .section-heading {
-            margin-bottom: 40px;
-        }
-
-        .section-label {
-            color: var(--accent-dark);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
+            text-align: center;
+            padding: 48px 25px 10px;
         }
 
         .section-heading h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: var(--dark);
-            line-height: 1.25;
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.35;
+            text-transform: uppercase;
+            color: #303239;
         }
 
         .section-heading p {
             color: var(--muted);
-            max-width: 650px;
-            margin-top: 15px;
+            margin: 10px auto 0;
+            max-width: 680px;
         }
 
-        /* About */
+        /* PROJECT GRID */
 
-        .about {
-            background: #eee8df;
-        }
-
-        .about-content {
+        .project-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .about-text p {
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-
-        .skills-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .skills-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 23px;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: #eee7de;
-            color: var(--accent-dark);
-            padding: 8px 13px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* Projects */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .project-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 0;
+            background: #FFFFFF;
+            padding: 42px 38px 45px;
+            border-right: 1px solid #EBEBEB;
+            border-top: 1px solid #EBEBEB;
+            transition: background 0.25s;
+        }
+
+        .project-card:nth-child(even) {
+            border-right: none;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(41, 39, 37, 0.08);
+            background: #FCFAF8;
         }
 
         .project-image {
@@ -308,337 +262,283 @@
             height: 245px;
             object-fit: cover;
             display: block;
-            background: #eee8df;
+            margin-bottom: 30px;
+            background: #E9E4DF;
         }
 
-        .project-content {
-            padding: 28px;
-        }
-
-        .project-category {
-            color: var(--accent-dark);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+        .project-card h3 {
+            color: #292B30;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-align: center;
             text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .project-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 25px;
-            color: var(--dark);
-            line-height: 1.3;
-            margin-bottom: 15px;
-        }
-
-        .project-content p {
-            font-size: 14px;
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .project-content ul {
-            padding-left: 20px;
             margin-bottom: 20px;
         }
 
-        .project-content li {
-            font-size: 14px;
-            color: var(--text);
-            margin-bottom: 8px;
+        .project-card p {
+            color: #6D6D71;
+            font-size: 0.98rem;
+            margin-bottom: 18px;
         }
 
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 20px 0;
-        }
-
-        .project-tags span {
-            background: #eee7de;
-            color: var(--accent-dark);
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--accent-dark);
-            font-size: 14px;
+        .project-card .tech {
+            color: #756157;
+            font-size: 0.88rem;
             font-weight: 700;
         }
 
-        .project-link:hover {
-            color: var(--dark);
+        .project-link,
+        .button-link {
+            display: inline-block;
+            padding: 11px 19px;
+            background: #595052;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            border: 1px solid #595052;
+            transition: all 0.2s;
         }
 
-        /* UK Retail 360 Project */
-
-        .retail-project .project-image {
-            height: 180px;
-            margin-bottom: 24px;
+        .project-link:hover,
+        .button-link:hover {
+            background: #78665E;
+            border-color: #78665E;
         }
 
-        .retail-project .project-content {
-            padding-top: 0;
-        }
+        /* CV SECTION */
 
-        .retail-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .retail-gallery-item {
-            background: #f8f5f0;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px;
-        }
-
-        .retail-gallery-item img {
-            width: 100%;
-            height: 190px;
-            object-fit: contain;
-            display: block;
-            cursor: zoom-in;
-            background: #f8f5f0;
-        }
-
-        .retail-gallery-item p {
-            font-size: 12px;
-            font-weight: 600;
-            text-align: center;
-            color: var(--accent-dark);
-            margin: 10px 0 0;
-        }
-
-        .retail-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .metric-card {
-            background: #eee7de;
-            border-radius: 7px;
-            padding: 15px 10px;
+        .cv-container {
+            padding: 35px;
             text-align: center;
         }
 
-        .metric-card strong {
-            display: block;
-            font-family: 'Playfair Display', serif;
-            color: var(--dark);
-            font-size: 22px;
-        }
-
-        .metric-card span {
-            font-size: 11px;
+        .cv-container p {
             color: var(--muted);
+            margin-bottom: 22px;
         }
 
-        /* Experience */
+        .cv-container iframe {
+            display: block;
+            width: 100%;
+            height: 680px;
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+            background: #F5F2EE;
+        }
 
-        .experience {
-            background: #eee8df;
+        .cv-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-list {
+            padding: 30px 38px 45px;
         }
 
         .experience-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 25px;
+            padding: 27px 28px;
+            border-bottom: 1px solid #E9E5E1;
+        }
+
+        .experience-card:last-child {
+            border-bottom: none;
         }
 
         .experience-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--dark);
+            color: #303239;
+            font-size: 1.35rem;
+            margin-bottom: 7px;
         }
 
-        .experience-meta {
-            color: var(--accent-dark);
-            font-size: 14px;
+        .experience-card .meta {
+            color: #8A7165;
+            font-size: 0.91rem;
             font-weight: 600;
-            margin: 8px 0 18px;
+            margin-bottom: 15px;
         }
 
         .experience-card ul {
-            padding-left: 20px;
+            padding-left: 22px;
+            color: #66666B;
         }
 
         .experience-card li {
-            margin-bottom: 10px;
-            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 4px;
         }
 
-        /* Education */
+        /* CONTACT */
 
-        .education-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 30px;
+        #contact {
+            margin-top: 70px;
+            padding: 65px 22px;
+            text-align: center;
+            color: #F4EDE8;
+            background:
+                linear-gradient(
+                    rgba(37, 34, 36, 0.94),
+                    rgba(37, 34, 36, 0.96)
+                ),
+                url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
         }
 
-        .education-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--dark);
+        #contact h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 13px;
         }
 
-        .education-card p {
-            color: var(--muted);
-            margin-top: 8px;
+        #contact p {
+            max-width: 680px;
+            margin: 8px auto;
+            color: #D6CCC8;
         }
 
-        /* Contact */
-
-        .contact {
-            background: var(--dark);
-            color: #f5f1eb;
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 26px auto;
         }
 
-        .contact .section-label {
-            color: #c4a88d;
+        .contact-links a {
+            display: inline-block;
+            padding: 10px 17px;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
 
-        .contact .section-heading h2 {
-            color: #f5f1eb;
+        .contact-links a:hover {
+            background: #FFFFFF;
+            color: #29272A;
         }
-
-        .contact .section-heading p {
-            color: #c7c0b8;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .contact-card {
-            padding: 25px;
-            border: 1px solid #514b45;
-            border-radius: 8px;
-            background: #332f2b;
-        }
-
-        .contact-card h3 {
-            font-size: 15px;
-            margin-bottom: 10px;
-            color: #c4a88d;
-        }
-
-        .contact-card p,
-        .contact-card a {
-            font-size: 14px;
-            color: #f5f1eb;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-card a:hover {
-            color: #c4a88d;
-        }
-
-        /* Footer */
 
         footer {
-            background: #211f1d;
-            color: #b7afa6;
-            padding: 25px 0;
+            padding: 20px;
             text-align: center;
-            font-size: 13px;
+            background: #1D1B1E;
+            color: #BFB4B7;
+            font-size: 0.85rem;
         }
 
-        /* Responsive */
+        /* RESPONSIVE LAYOUT */
 
-        @media (max-width: 900px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
+        @media (min-width: 1500px) {
+            .portfolio-shell {
+                max-width: 1300px;
             }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                width: 92%;
-            }
-
-            nav {
-                flex-direction: column;
-                padding: 15px 0;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
+        @media (max-width: 760px) {
             .hero {
-                padding: 65px 0;
+                min-height: 70svh;
+                padding: 70px 20px 90px;
+                background-position: center;
             }
 
             .hero h1 {
-                font-size: 42px;
+                letter-spacing: 2px;
+                overflow-wrap: anywhere;
             }
 
-            .hero h2 {
-                font-size: 18px;
+            .hero-subtitle {
+                font-size: 1.02rem;
             }
 
-            section {
-                padding: 60px 0;
+            .down-arrow {
+                width: 56px;
+                height: 56px;
+                margin-top: 30px;
+            }
+
+            .portfolio-shell {
+                width: calc(100% - 24px);
+            }
+
+            .navigation {
+                flex-wrap: wrap;
+                min-height: auto;
+            }
+
+            .nav-button {
+                flex: 1 1 auto;
+                padding: 16px 10px;
+                font-size: 0.72rem;
+                letter-spacing: 0.7px;
+            }
+
+            .section-heading {
+                padding: 35px 20px 15px;
             }
 
             .section-heading h2 {
-                font-size: 33px;
+                font-size: 1.55rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 25px 23px 32px;
+                border-right: none;
             }
 
             .project-image {
                 height: 220px;
+                margin-bottom: 24px;
             }
 
-            .project-content {
-                padding: 22px;
+            .project-card h3 {
+                font-size: 1.3rem;
             }
 
-            .retail-gallery-item img {
-                height: 180px;
+            .experience-list {
+                padding: 15px 17px 30px;
             }
 
-            .retail-metrics {
-                grid-template-columns: 1fr;
+            .experience-card {
+                padding: 23px 7px;
             }
 
-            .hero-card {
-                padding: 25px;
+            .cv-container {
+                padding: 20px 13px;
+            }
+
+            .cv-container iframe {
+                height: 520px;
+            }
+
+            #contact {
+                margin-top: 40px;
+                padding: 48px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -646,522 +546,401 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- FULL-SCREEN INTRODUCTION -->
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#home" class="logo">Sonal Sherkar</a>
+    <header class="hero" id="home">
 
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="hero-content">
+
+            <h1>Sonal Sherkar</h1>
+
+            <p class="hero-subtitle">
+                Data Analyst | Business Intelligence Analyst | MSc Data Science
+            </p>
+
+            <p class="hero-location">
+                United Kingdom
+            </p>
+
+            <a
+                class="down-arrow"
+                href="#portfolio"
+                aria-label="Scroll down to portfolio">
+                ↓
+            </a>
+
         </div>
+
     </header>
 
-    <!-- Hero Section -->
+    <!-- PORTFOLIO -->
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
+    <div class="portfolio-shell" id="portfolio">
 
-                <div>
-                    <div class="hero-label">Welcome to my portfolio</div>
+        <nav class="navigation" aria-label="Portfolio navigation">
 
-                    <h1>Sonal Sherkar</h1>
+            <button
+                type="button"
+                class="nav-button active"
+                aria-pressed="true"
+                onclick="showPage('projects', this)">
+                Projects
+            </button>
 
-                    <h2>Data Analyst | BI Analyst | MSc Data Science</h2>
+            <button
+                type="button"
+                class="nav-button"
+                aria-pressed="false"
+                onclick="showPage('cv', this)">
+                CV
+            </button>
 
-                    <p>
-                        I am a data-driven professional passionate about transforming
-                        complex datasets into meaningful business insights.
-                        I use SQL, Power BI, Tableau, and data analytics to support
-                        informed decision-making and solve business problems.
-                    </p>
+            <button
+                type="button"
+                class="nav-button"
+                aria-pressed="false"
+                onclick="showPage('experience', this)">
+                Experience
+            </button>
 
-                    <div class="hero-buttons">
-                        <a href="#projects" class="button button-primary">
-                            Explore Projects
-                        </a>
+        </nav>
 
-                        <a href="Sonal-Sherkar-CV.pdf"
-                           class="button button-secondary"
-                           target="_blank">
-                            View CV
-                        </a>
-                    </div>
-                </div>
+        <!-- PROJECTS -->
 
-                <div class="hero-card">
-                    <h3>Professional Profile</h3>
-
-                    <div class="hero-card-item">
-                        <strong>Specialisation</strong>
-                        <span>Data Analytics & Business Intelligence</span>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <strong>Technical Skills</strong>
-                        <span>SQL, Power BI, Tableau, Python, Excel</span>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <strong>Location</strong>
-                        <span>United Kingdom</span>
-                    </div>
-
-                    <div class="hero-card-item">
-                        <strong>Career Focus</strong>
-                        <span>Data Analyst & BI Analyst Opportunities</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-
-    <section class="about" id="about">
-        <div class="container">
+        <section id="projects" class="page-view active">
 
             <div class="section-heading">
-                <div class="section-label">About Me</div>
-                <h2>Turning Data Into<br>Business Insights</h2>
-            </div>
 
-            <div class="about-content">
-
-                <div class="about-text">
-                    <p>
-                        I am an MSc Data Science graduate with a strong interest
-                        in data analytics, business intelligence, and data-driven
-                        decision-making.
-                    </p>
-
-                    <p>
-                        My experience includes working with structured datasets,
-                        performing data cleaning and analysis, creating interactive
-                        dashboards, and communicating insights through visualisations.
-                    </p>
-
-                    <p>
-                        I enjoy exploring data to identify trends, understand
-                        business performance, and uncover opportunities for
-                        improvement.
-                    </p>
-
-                    <p>
-                        I am continuously developing my technical skills and
-                        building practical projects using SQL, Power BI, Tableau,
-                        and Python.
-                    </p>
-                </div>
-
-                <div class="skills-card">
-                    <h3>Technical Skills</h3>
-
-                    <div class="skills-list">
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">SQL Server</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">DAX</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Excel</span>
-                        <span class="skill-tag">Data Cleaning</span>
-                        <span class="skill-tag">Data Visualisation</span>
-                        <span class="skill-tag">Business Intelligence</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Dashboard Development</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-
-    <section id="projects">
-        <div class="container">
-
-            <div class="section-heading">
-                <div class="section-label">My Work</div>
-                <h2>Featured Projects</h2>
+                <h2>My Projects</h2>
 
                 <p>
-                    A selection of data analytics and business intelligence
-                    projects showcasing my technical skills and analytical approach.
+                    Data analytics and visualisation projects showcasing
+                    business insights through interactive dashboards.
                 </p>
+
             </div>
 
-            <div class="projects-grid">
+            <div class="project-grid">
 
-                <!-- Insurance Power BI Project -->
+                <!-- POWER BI PROJECT -->
 
-                <div class="project-card">
+                <article class="project-card">
+
+                    <!-- Display image: business analytics photo, not the dashboard screenshot -->
 
                     <img
-                        src="powerbi-dashboard.png"
-                        alt="Insurance Agent Power BI Dashboard"
                         class="project-image"
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85"
+                        alt="Business analytics dashboard with charts and performance metrics"
+                        loading="lazy"
                     >
 
-                    <div class="project-content">
+                    <h3>
+                        Insurance Agent Performance &amp; Segmentation Dashboard
+                    </h3>
 
-                        <div class="project-category">
-                            Power BI | Business Intelligence
-                        </div>
+                    <p>
+                        Developed an interactive Power BI dashboard to analyse
+                        insurance agent performance, policies in force, quotes,
+                        retention ratios, hit ratios, loss ratios, and business growth.
+                        Used data modelling, DAX measures, Power Query, KPI cards,
+                        charts, filters, and Top-N analysis to make performance
+                        insights easier to understand.
+                    </p>
 
-                        <h3>Insurance Agent Performance Dashboard</h3>
+                    <p class="tech">
+                        Tools: Power BI, DAX, Power Query, Data Modelling
+                    </p>
 
-                        <p>
-                            An interactive Power BI dashboard designed to analyse
-                            insurance agent performance and provide insights into
-                            business metrics.
-                        </p>
+                    <!-- Button opens your actual Power BI screenshot -->
 
-                        <ul>
-                            <li>Analysed insurance performance indicators.</li>
-                            <li>Developed interactive dashboard visualisations.</li>
-                            <li>Presented key insights to support business decisions.</li>
-                        </ul>
+                    <a
+                        class="project-link"
+                        href="powerbi-dashboard.png"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View Power BI Dashboard ↗
+                    </a>
 
-                        <div class="project-tags">
-                            <span>Power BI</span>
-                            <span>DAX</span>
-                            <span>Data Visualisation</span>
-                            <span>Business Analytics</span>
-                        </div>
+                </article>
 
-                    </div>
-                </div>
+                <!-- TABLEAU PROJECT -->
 
-                <!-- Tableau COVID Project -->
-
-                <div class="project-card">
-
-                    <div class="project-content">
-
-                        <div class="project-category">
-                            Tableau | Data Visualisation
-                        </div>
-
-                        <h3>COVID-19 India Analysis</h3>
-
-                        <p>
-                            A Tableau dashboard exploring COVID-19 trends across
-                            India, using data visualisation to understand the
-                            distribution and impact of cases.
-                        </p>
-
-                        <ul>
-                            <li>Explored COVID-19 data across Indian states.</li>
-                            <li>Created visualisations to identify trends.</li>
-                            <li>Presented insights through an interactive dashboard.</li>
-                        </ul>
-
-                        <div class="project-tags">
-                            <span>Tableau</span>
-                            <span>Data Analysis</span>
-                            <span>Visualisation</span>
-                        </div>
-
-                        <a
-                            href="https://public.tableau.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link"
-                        >
-                            View Tableau Public →
-                        </a>
-
-                    </div>
-                </div>
-
-                <!-- UK Retail 360 Project -->
-
-                <div class="project-card retail-project">
+                <article class="project-card">
 
                     <img
-                        src="Executive_Overview.png"
-                        alt="UK Retail 360 Executive Overview Dashboard"
                         class="project-image"
+                        src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=1200&q=85"
+                        alt="Scientific image representing public health data analysis"
+                        loading="lazy"
                     >
 
-                    <div class="project-content">
-
-                        <div class="project-category">
-                            SQL Server | Power BI | Enterprise Analytics
-                        </div>
-
-                        <h3>UK Retail 360° — Enterprise BI, Sales & Operations Analytics</h3>
-
-                        <p>
-                            An end-to-end enterprise business intelligence project
-                            combining SQL Server 2025, T-SQL, Power BI, and DAX
-                            to analyse retail sales, product performance, and
-                            operational efficiency.
-                        </p>
-
-                        <ul>
-                            <li>
-                                Built an analytical data model using SQL Server 2025
-                                and T-SQL.
-                            </li>
-
-                            <li>
-                                Developed interactive Power BI dashboards for
-                                executive, sales, product, and operations analysis.
-                            </li>
-
-                            <li>
-                                Created DAX measures to evaluate revenue,
-                                profitability, and operational performance.
-                            </li>
-
-                            <li>
-                                Analysed business performance through an
-                                executive-level reporting solution.
-                            </li>
-                        </ul>
-
-                        <div class="retail-metrics">
-
-                            <div class="metric-card">
-                                <strong>£3.59M</strong>
-                                <span>Total Revenue</span>
-                            </div>
-
-                            <div class="metric-card">
-                                <strong>£1.51M</strong>
-                                <span>Total Profit</span>
-                            </div>
-
-                            <div class="metric-card">
-                                <strong>42.1%</strong>
-                                <span>Profit Margin</span>
-                            </div>
-
-                        </div>
-
-                        <div class="project-tags">
-                            <span>SQL Server 2025</span>
-                            <span>T-SQL</span>
-                            <span>Power BI</span>
-                            <span>DAX</span>
-                            <span>Data Modelling</span>
-                            <span>Business Intelligence</span>
-                        </div>
-
-                        <!-- Dashboard Screenshot Gallery -->
-
-                        <div class="retail-gallery">
-
-                            <div class="retail-gallery-item">
-
-                                <a
-                                    href="Executive_Overview.png"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="Executive_Overview.png"
-                                        alt="UK Retail 360 Executive Overview Dashboard"
-                                    >
-                                </a>
-
-                                <p>Executive Overview Dashboard</p>
-
-                            </div>
-
-                            <div class="retail-gallery-item">
-
-                                <a
-                                    href="Sales_Product_Analysis.png"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="Sales_Product_Analysis.png"
-                                        alt="UK Retail 360 Sales and Product Analysis Dashboard"
-                                    >
-                                </a>
-
-                                <p>Sales & Product Analysis Dashboard</p>
-
-                            </div>
-
-                            <div class="retail-gallery-item">
-
-                                <a
-                                    href="Operations_Analysis.png"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img
-                                        src="Operations_Analysis.png"
-                                        alt="UK Retail 360 Operations Analysis Dashboard"
-                                    >
-                                </a>
-
-                                <p>Operations Analysis Dashboard</p>
-
-                            </div>
-
-                        </div>
-
-                        <p>
-                            Click any dashboard screenshot to view it in full size.
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-
-    <section class="experience" id="experience">
-        <div class="container">
-
-            <div class="section-heading">
-                <div class="section-label">Professional Journey</div>
-                <h2>Experience</h2>
-            </div>
-
-            <div class="experience-card">
-
-                <h3>Data Analytics & Business Intelligence Projects</h3>
-
-                <div class="experience-meta">
-                    Project-Based Experience
-                </div>
-
-                <ul>
-                    <li>
-                        Developed analytical dashboards using Power BI and Tableau
-                        to present business insights.
-                    </li>
-
-                    <li>
-                        Used SQL and data analysis techniques to explore datasets
-                        and identify meaningful trends.
-                    </li>
-
-                    <li>
-                        Created data visualisations to communicate findings
-                        clearly and effectively.
-                    </li>
-
-                    <li>
-                        Applied analytical thinking to business and operational
-                        performance questions.
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Education Section -->
-
-    <section id="education">
-        <div class="container">
-
-            <div class="section-heading">
-                <div class="section-label">Academic Background</div>
-                <h2>Education</h2>
-            </div>
-
-            <div class="education-card">
-
-                <h3>MSc Data Science</h3>
-
-                <p>
-                    Master's Degree in Data Science
-                </p>
-
-                <p>
-                    United Kingdom
-                </p>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-
-    <section class="contact" id="contact">
-        <div class="container">
-
-            <div class="section-heading">
-                <div class="section-label">Get In Touch</div>
-                <h2>Let's Connect</h2>
-
-                <p>
-                    I am open to Data Analyst and Business Intelligence
-                    opportunities. Feel free to connect with me.
-                </p>
-            </div>
-
-            <div class="contact-grid">
-
-                <div class="contact-card">
-                    <h3>Email</h3>
+                    <h3>COVID-19 in India Dashboard</h3>
 
                     <p>
-                        <a href="mailto:sonal.sherkar@example.com">
-                            sonal.sherkar@example.com
-                        </a>
+                        Created a Tableau dashboard exploring COVID-19 trends
+                        across India, including state-wise cases and deaths,
+                        age and gender analysis, vaccination information, and
+                        testing laboratory data. Used interactive charts and
+                        geographic visualisations to communicate public health
+                        trends clearly.
                     </p>
-                </div>
 
-                <div class="contact-card">
-                    <h3>LinkedIn</h3>
-
-                    <p>
-                        <a
-                            href="https://www.linkedin.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Connect on LinkedIn
-                        </a>
+                    <p class="tech">
+                        Tools: Tableau, Data Visualisation, Data Analysis
                     </p>
-                </div>
 
-                <div class="contact-card">
-                    <h3>Location</h3>
+                    <a
+                        class="project-link"
+                        href="https://public.tableau.com/views/Covid-19DashboardAnalysis_17383285954390/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View Tableau Dashboard ↗
+                    </a>
 
-                    <p>United Kingdom</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CV -->
+
+        <section id="cv" class="page-view">
+
+            <div class="section-heading">
+                <h2>My CV</h2>
+            </div>
+
+            <div class="cv-container">
+
+                <p>
+                    View or download my CV using the options below.
+                </p>
+
+                <iframe
+                    src="Sonal-Sherkar-CV.pdf"
+                    title="Sonal Sherkar CV">
+                </iframe>
+
+                <div class="cv-buttons">
+
+                    <a
+                        class="button-link"
+                        href="Sonal-Sherkar-CV.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Open CV ↗
+                    </a>
+
+                    <a
+                        class="button-link"
+                        href="Sonal-Sherkar-CV.pdf"
+                        download>
+                        Download CV
+                    </a>
+
                 </div>
 
             </div>
 
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- EXPERIENCE -->
+
+        <section id="experience" class="page-view">
+
+            <div class="section-heading">
+                <h2>Experience &amp; Internships</h2>
+            </div>
+
+            <div class="experience-list">
+
+                <article class="experience-card">
+
+                    <h3>Intern – Junior Data Analyst</h3>
+
+                    <p class="meta">
+                        Fortray Global Services Ltd. | London, UK |
+                        January 2025 – Present | Hybrid
+                    </p>
+
+                    <ul>
+                        <li>
+                            Built five interactive dashboards to track KPIs
+                            and communicate business performance insights.
+                        </li>
+
+                        <li>
+                            Used SQL JOINs, filters, and aggregate functions
+                            to retrieve and analyse business data.
+                        </li>
+
+                        <li>
+                            Used Power Query, DAX, and data modelling to
+                            transform data and develop dashboard measures.
+                        </li>
+
+                        <li>
+                            Helped reduce reporting time by 40% and improve
+                            operational efficiency by 20%.
+                        </li>
+
+                        <li>
+                            Performed data validation, reconciliation, and
+                            testing to improve reporting accuracy.
+                        </li>
+
+                        <li>
+                            Gathered stakeholder requirements and documented
+                            reporting processes.
+                        </li>
+                    </ul>
+
+                </article>
+
+                <article class="experience-card">
+
+                    <h3>Intern – Data Analyst</h3>
+
+                    <p class="meta">
+                        Source Code Technology Private Ltd. | India |
+                        November 2022 – April 2023
+                    </p>
+
+                    <ul>
+                        <li>
+                            Collected, cleaned, and prepared datasets using
+                            SQL, Python, and Excel.
+                        </li>
+
+                        <li>
+                            Wrote SQL queries to retrieve, filter, and analyse data.
+                        </li>
+
+                        <li>
+                            Conducted exploratory data analysis to identify
+                            trends, patterns, and potential data quality issues.
+                        </li>
+
+                        <li>
+                            Created Power BI dashboards and visual reports
+                            to present findings clearly.
+                        </li>
+
+                        <li>
+                            Performed data quality checks and prepared reports
+                            and presentations.
+                        </li>
+                    </ul>
+
+                </article>
+
+                <article class="experience-card">
+
+                    <h3>Supermarket Assistant</h3>
+
+                    <p class="meta">
+                        Waitrose | London, UK | March 2024 – December 2025
+                    </p>
+
+                    <ul>
+                        <li>
+                            Maintained accurate inventory records and reviewed
+                            stock information.
+                        </li>
+
+                        <li>
+                            Supported daily store operations while paying
+                            close attention to detail and accuracy.
+                        </li>
+
+                        <li>
+                            Developed communication, teamwork, and
+                            problem-solving skills.
+                        </li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- GET IN TOUCH -->
+
+    <section id="contact">
+
+        <h2>Get in Touch</h2>
+
+        <p>
+            Interested in data analytics, business intelligence, or new
+            opportunities? Feel free to connect.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:sonalshivajisherkar28@gmail.com">
+                Email Me
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/sonal-sherkar-3117371b2/"
+                target="_blank"
+                rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
+
+            <a href="tel:+447393064031">
+                +44 7393 064031
+            </a>
+
+        </div>
+
+        <p>United Kingdom</p>
+
+    </section>
 
     <footer>
-        <div class="container">
-            <p>
-                © 2026 Sonal Sherkar. Designed with care.
-            </p>
-        </div>
+        <p>© 2026 Sonal Sherkar | Data Analyst Portfolio</p>
     </footer>
+
+    <script>
+        function showPage(pageId, clickedButton) {
+
+            const pages = document.querySelectorAll(".page-view");
+
+            pages.forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            const selectedPage = document.getElementById(pageId);
+
+            if (!selectedPage) {
+                return;
+            }
+
+            selectedPage.classList.add("active");
+
+            const buttons = document.querySelectorAll(".nav-button");
+
+            buttons.forEach(function(button) {
+                button.classList.remove("active");
+                button.setAttribute("aria-pressed", "false");
+            });
+
+            clickedButton.classList.add("active");
+            clickedButton.setAttribute("aria-pressed", "true");
+
+            document.getElementById("portfolio").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    </script>
 
 </body>
 </html>
+```
